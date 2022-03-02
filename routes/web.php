@@ -9,6 +9,8 @@ use App\Http\Controllers\Guest\PaymentController;
 use App\Http\Controllers\Guest\ServicesController;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

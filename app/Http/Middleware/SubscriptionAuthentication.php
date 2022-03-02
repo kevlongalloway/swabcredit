@@ -17,6 +17,7 @@ class SubscriptionAuthentication
      */
     public function handle(Request $request, Closure $next)
     {
+        $servicePath = $request->route()->parameters()['servicePath'];
         if(!Auth::check()){  
             $request->session()->put('service_path', $servicePath);
             return redirect()->route('register');
