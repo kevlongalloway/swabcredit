@@ -17,6 +17,9 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('route');
+            $table->string('path');
+            $table->integer('price')->nullable();
+            $table->boolean('is_subscription')->default(0);
             $table->timestamps();
         });
     }

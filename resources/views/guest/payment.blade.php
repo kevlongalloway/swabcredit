@@ -3,6 +3,9 @@
         <x-slot name="logo">
             <img src="{{ url('../images/logo.png') }}" style="width: 4rem;">
         </x-slot>
+        <h1 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Billing Information') }}
+        </h1>
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -39,13 +42,6 @@
             </div>
             <hr>
 
-            <div class="mt-8">
-                <h2 class="relative text-xl font-bold">
-                    <span class="side-title">
-                        Payment Information
-                    </span>
-                </h2>
-            </div>
             <div class="mt-4">
                 <div id="card-errors"></div>
                 <div id="total" class="mb-4">

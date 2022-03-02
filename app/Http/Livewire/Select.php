@@ -11,6 +11,7 @@ use App\Models\Service;
 class Select extends Component
 {
     public $service;
+    public $service_id;
     public $subscription;
     public $subscriptions = [];
     public $plan;
@@ -21,8 +22,8 @@ class Select extends Component
         $services = Service::all();
 
         foreach($services as $service) {
-            if(Route::currentRouteName() == $service->route) {
-                $this->service = $service->id;
+            if($this->service->path ==  $service->path) {
+                $this->service_id = $service->id;
             }
         }
     }
@@ -30,7 +31,7 @@ class Select extends Component
     public function render()
     {
         $this->subscriptions = DB::table('products')
-                               ->where('service_id', $this->service)
+                               ->where('service_id', $this->service_id)
                                ->get(); 
         
         if(!empty($this->subscription)) {

@@ -4,7 +4,9 @@ use App\Http\Controllers\Guest\CRController;
 use App\Http\Controllers\Guest\TPController;
 use App\Http\Controllers\Guest\BFController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\Guest\PaymentController;
+use App\Http\Controllers\Guest\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,4 +34,9 @@ Route::get('tax-preparation', [TPController::class, 'index'])->name('tp.index');
 Route::get('business-formation', [BFController::class, 'index'])->name('bf.index');
 
 Route::post('/payment', [PaymentController::class, 'index'])->name('payment.index');
+
+Route::get('/upload-documents', [UploadController::class, 'index'])->name('upload.index');
+
+Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
+
 require_once __DIR__ . '/jetstream.php';

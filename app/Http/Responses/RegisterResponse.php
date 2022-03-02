@@ -13,11 +13,9 @@ class RegisterResponse implements RegisterResponseContract
      */
     public function toResponse($request)
     {
-        if($request->session()->has('subscription_show')) {
-            $service = Service::find($request->session()->get('subscription_show'));
-            return redirect()->route($service->route);
+        if($request->session()->has('service_path')) {
+            return redirect()->route('guest.services', ['servicePath' => $request->session()->get('service_path')]);
         }
-        
         return redirect()->route('dashboard');
     }
 }

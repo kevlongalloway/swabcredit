@@ -27,10 +27,12 @@
         <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
         <script>
             // Get a reference to the file input element
-            const inputElement = document.querySelector('input[type="file"]');
+            const inputElement = document.querySelectorAll('input[type="file"]');
 
             // Create a FilePond instance
-            const pond = FilePond.create(inputElement);
+            inputElement.forEach(function (inputE) {
+               const pond = FilePond.create(inputE)
+            });
         </script>
         @stack('scripts')
         @livewireScripts

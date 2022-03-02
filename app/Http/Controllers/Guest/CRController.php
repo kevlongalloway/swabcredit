@@ -34,8 +34,6 @@ class CRController extends Controller
             'price' => $plan->price,
             'service' => 'Credit Restoration',
             'product' => $subscription->name,
-        ]);
-            
+        ]);         
     }
-
 }

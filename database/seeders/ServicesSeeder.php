@@ -18,14 +18,25 @@ class ServicesSeeder extends Seeder
             [
                 'name' =>'Credit Restoration',
                 'route' => 'cr.index',
+                'path' => 'credit-restoration',
+                'is_subscription' => true,
+            ],
+
+        ]);
+        DB::table('services')->insert([
+            [
+                'name' => 'Tax Preparation',
+                'route' => 'tp.index',
+                'path' => 'tax-preparation',
+                'is_subscription' => false,
+                'price' => 24999,
             ],
             [
                 'name' =>'Business Formation',
                 'route' => 'bf.index',
-            ],
-            [
-                'name' => 'Tax Preparation',
-                'route' => 'tp.index',
+                'path' => 'business-formation',
+                'is_subscription' => false,
+                'price' => 25999
             ]
         ]);
         DB::table('products')->insert([

@@ -74,7 +74,7 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @foreach($services as $s)
-                        <a class="dropdown-item" href="{{ route($s->route) }}">{{ $s->name }}</a>
+                        <a class="dropdown-item" href="{!! route('guest.services', $s->path) !!}">{{ $s->name }}</a>
                         @endforeach
 
                       </div>

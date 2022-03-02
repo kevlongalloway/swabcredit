@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('service_id')->constrained('services');
             $table->string('name');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

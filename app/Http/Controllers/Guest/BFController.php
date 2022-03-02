@@ -14,6 +14,11 @@ class BFController extends Controller
             $request->session()->put('subscription_show', 2);
             return redirect()->route('register');
         }
-        return view('guest.credit-restoration');
+        return view('guest.payment', [
+            'intent' => auth()->user()->createSetupIntent(),
+            'price' => $plan->price,
+            'service' => 'Credit Restoration',
+            'product' => $subscription->name,
+        ]);
     }
 }
