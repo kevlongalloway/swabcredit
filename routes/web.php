@@ -29,7 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
-Route::post('/checkout', [ServicesController::class, 'store'])->name('to.checkout');
+Route::post('/services/checkout', [ServicesController::class, 'store'])->name('to.checkout');
+
 
 Route::get('/upload-documents', [UploadController::class, 'index'])->name('upload.index');
 
