@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Plan;
+use App\Models\Service;
 use App\Casts\CastsPrice;
 
 class Product extends Model
@@ -21,6 +22,10 @@ class Product extends Model
     public function plans()
     {
         return $this->hasMany(Plan::class);
+    }
+
+    public function service(){
+        return $this->belongsTo(Service::class);
     }
 
 }

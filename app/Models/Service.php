@@ -22,7 +22,7 @@ class Service extends Model
 
     public function hasProducts()
     {
-        return (bool) count((array)$this->products());
+        return $this->products()->exists();
     }
 
     public function plans()
@@ -32,7 +32,7 @@ class Service extends Model
 
     public function hasPlans()
     {
-        return (bool) count((array)$this->plans());
+        return $this->plans()->exists();
     }
     protected $casts = [
         'price' => CastsPrice::class,

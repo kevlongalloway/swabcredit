@@ -40,5 +40,6 @@ Route::post('/payment', [PaymentController::class, 'index'])->name('payment.inde
 Route::get('/upload-documents', [UploadController::class, 'index'])->name('upload.index');
 
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
+Route::post('/checkout', [ServicesController::class, 'store'])->name('to.checkout');
 
 require_once __DIR__ . '/jetstream.php';

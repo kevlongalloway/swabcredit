@@ -6,7 +6,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('cr.store') }}">
+        <form method="POST" action="{{ route('to.checkout') }}">
             @csrf
             @livewire('select', ['service' => $service])
 

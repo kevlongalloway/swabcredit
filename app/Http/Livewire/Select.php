@@ -32,8 +32,7 @@ class Select extends Component
     {
         $this->subscriptions = DB::table('products')
                                ->where('service_id', $this->service_id)
-                               ->get(); 
-        
+                               ->get();
         if(!empty($this->subscription)) {
             $this->plans = Plan::where('product_id', $this->subscription)->get();
         }
