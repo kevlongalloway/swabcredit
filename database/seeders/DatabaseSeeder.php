@@ -21,5 +21,9 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$D0RubfnLjXbG0vj.sw//o.9p.0IJI101Uin6UTFfsW30y8OeV519e',
             'is_admin' => '1',
         ]);
+
+        $this->call([
+            ServicesSeeder::class,
+        ]);
     }
 }

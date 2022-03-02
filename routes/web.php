@@ -3,6 +3,7 @@
 use App\Http\Controllers\Guest\CRController;
 use App\Http\Controllers\Guest\TPController;
 use App\Http\Controllers\Guest\BFController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Guest\PaymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

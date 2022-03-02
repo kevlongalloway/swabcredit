@@ -16,5 +16,11 @@ class Subscription extends CashierSubscription
 
     protected $table = 'subscriptions';
 
+    protected $fillable = [
+        'name',
+        'stripe_id',
+        
+    ];
+
     
 }

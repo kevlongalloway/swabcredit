@@ -6,39 +6,36 @@ use App\Http\Controllers\Controller;
 use App\Lib\Pricing;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
+
 
 class CRController extends Controller
 {
-    public $service = 'credit-restoration';
-    protected $user;
-
-
-    //first login form 
-    public function index()
+    
+    public function index(Request $request)
     {
+        if(!Auth::check()){  
+            $request->session()->put('subscription_show', 1);
+            return redirect()->route('register');
+        }
         return view('guest.credit-restoration');
     }
-    //first login form post and return view payment plan 
+
+
+    
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        $user->createAsStripeCustomer();
-        $request->session()->put('user_id', $user->id);
-        $request->session()->put('service', $this->service);
-        $request->session()->put('subscription', $request->subscription);
+       $subscription = Product::find($request->subscription);
+       $plan = $subscription->plans()->where('name' ,$request->plan)->first();
 
-
-
-        $plans = $this->getPlans($request);
-
-        return view('guest.payment-plan')
-            ->with('plans', $plans);
+        return view('guest.payment', [
+            'intent' => auth()->user()->createSetupIntent(),
+            'price' => $plan->price,
+            'service' => 'Credit Restoration',
+            'product' => $subscription->name,
+        ]);
+            
     }
 
-
-    protected function getPlans(Request $request)
-    {
-        $pricing = Pricing::services();
-        return $pricing['services'][$this->service][$request->subscription];
-    }
 }

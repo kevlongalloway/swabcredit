@@ -70,12 +70,12 @@
                   <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Products
+                        Services
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('cr.index') }}">Credit Restoration</a>
-                        <a class="dropdown-item" href="#">CPN / SCN Profile</a>
-                        <a class="dropdown-item" href="#">PPP Loan</a>
+                        @foreach($services as $s)
+                        <a class="dropdown-item" href="{{ route($s->route) }}">{{ $s->name }}</a>
+                        @endforeach
 
                       </div>
                     </li>
@@ -95,9 +95,11 @@
                       <a class="nav-link" href="#">Contact</a>
                     </li>
                     @auth
+                      @isAdmin
                         <li class="nav-item mx-2 active">
                           <a class="nav-link  btn-warning btn" href="{{ route('register') }}">Admin Dashboard</a>
                         </li>
+                        @endisAdmin
                         <li class="nav-item mx-2 active">
                           <a class="nav-link  btn-warning btn" href="{{ url('/dashboard') }}">Dashboard</a>
                         </li>
