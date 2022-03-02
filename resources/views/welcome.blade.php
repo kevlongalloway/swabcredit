@@ -73,7 +73,7 @@
                         Products
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Credit Restoration</a>
+                        <a class="dropdown-item" href="{{ route('cr.index') }}">Credit Restoration</a>
                         <a class="dropdown-item" href="#">CPN / SCN Profile</a>
                         <a class="dropdown-item" href="#">PPP Loan</a>
 

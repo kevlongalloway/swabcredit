@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
+use Laravel\Cashier\Cashier;
+use App\Models\Cashier\Subscription;
+use App\Models\Cashier\SubscriptionItem;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,8 +32,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultstringLength(191);
 
+
         Blade::if('isAdmin', function () {
             return Auth::check() ? Auth::user()->isAdmin() : false;
         });
+
+        Cashier::calculateTaxes();
+        Cashier::ignoreMigrations();
+        Cashier::useSubscriptionModel(Subscription::class);
+        Cashier::useSubscriptionItemModel(SubscriptionItem::class);
     }
 }
