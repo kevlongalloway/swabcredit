@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::create([
             'name'     => 'Senetria',
             'email'    => 'senetria@swabcredit.com',
-            'password' => '$2y$10$D0RubfnLjXbG0vj.sw//o.9p.0IJI101Uin6UTFfsW30y8OeV519e',
+            'password' => Hash::make('password'),
             'is_admin' => '1',
         ]);
 

@@ -9,7 +9,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('cr.store') }}">
+        <form method="POST" action="{{ route('to.checkout') }}">
             @csrf
             <div class="mt-4">
                 <x-jet-label for="card-holder-name" value="{{ __('Full Name') }}" />

@@ -17,7 +17,7 @@ class Service extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'service_id');
     }
 
     public function hasProducts()
@@ -27,7 +27,7 @@ class Service extends Model
 
     public function plans()
     {
-        return $this->hasMany(Plan::class);
+        return $this->hasMany(Plan::class, 'service_id');
     }
 
     public function hasPlans()

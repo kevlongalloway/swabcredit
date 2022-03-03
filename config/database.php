@@ -38,7 +38,7 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
-            'database' => '/Users/kevlongalloway/dev/swabcredit/database/database.sqlite',
+            'database' => env('DB_DATABASE', '/var/www/html/database/database.sqlite'),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],

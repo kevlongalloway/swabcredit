@@ -17,8 +17,8 @@ class CreatePlansTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->foreignId('product_id')->nullable();
-            $table->foreignId('service_id')->nullable();
+            $table->integer('product_id')->nullable();
+            $table->integer('service_id')->nullable();
             $table->timestamps();
         });
     }
