@@ -62,11 +62,21 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /**
+     * Check if user is admin.
+     *
+     * @return Boolean
+     */
     public function isAdmin()
     {
         return $this->is_admin;
     }
 
+    /**
+     * Get the subscriptions that belong to a user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function subscriptions()
     {
         return $this->hasMany(Subscription::class);

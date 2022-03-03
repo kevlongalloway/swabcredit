@@ -10,6 +10,13 @@ use App\Models\Product;
 
 class ServicesController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     * @param Request $request
+     * @param $servicePath string 
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request, $servicePath)
     {
         $service = Service::where('path',$servicePath)->first();
@@ -25,6 +32,12 @@ class ServicesController extends Controller
         return view('guest.subscribe', ['service' => $service]);
     }
 
+    /**
+     * Resolve Product, Plan and price  
+     * Redirect to Payment Page (guest.payment)
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         if ($request->has('plan') && $request->has('subscription')) {
