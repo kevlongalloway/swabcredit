@@ -5,6 +5,7 @@ use App\Http\Controllers\Guest\TPController;
 use App\Http\Controllers\Guest\BFController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\SuccessController;
 use App\Http\Controllers\Guest\PaymentController;
 use App\Http\Controllers\Guest\ServicesController;
 use Illuminate\Support\Facades\Route;
@@ -28,15 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/make-a-payment', function () {
-    return view('make-a-payment');
-})->name('make-a-payment');
 
-Route::get('/success', function () {
-    return view('customer.success');
-})->name('customer.success');
-
-
+Route::get('/success', [SuccessController::class, 'index'])->name('customer.success');
 
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
 Route::post('/services/checkout', [ServicesController::class, 'store'])->name('to.checkout');
