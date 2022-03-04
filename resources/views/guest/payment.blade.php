@@ -7,9 +7,9 @@
             {{ __('Billing Information') }}
         </h1>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet-validation-errors id="post-errors" class="mb-4" />
 
-        <form method="POST" action="{{ route('to.checkout') }}">
+        <form method="POST" id="payment-form" action="{{ route('checkout') }}">
             @csrf
             <div class="mt-4">
                 <x-jet-label for="card-holder-name" value="{{ __('Full Name') }}" />
@@ -41,6 +41,8 @@
                 <x-jet-input id="postal_code" class="block mt-1 w-full" type="text" name="postal_code" :value="old('postal_code')"  maxlength="5" required />
             </div>
             <hr>
+
+            <input type="hidden" name="payment-method" id="payment-method">
 
             <div class="mt-4">
                 <div id="card-errors"></div>
@@ -74,25 +76,37 @@
 </script>
 
 <script>
-
     const cardHolderName = document.getElementById('card-holder-name');
     const cardButton = document.getElementById('card-button');
     const clientSecret = cardButton.dataset.secret; 
+    const paymentForm = document.getElementById('payment-form')
+
+    cardElement.on('change', function(event) {
+      var displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+    });
 
     cardButton.addEventListener('click', async (e) => {
-    const { setupIntent, error } = await stripe.confirmCardSetup(
-        clientSecret, {
-            payment_method: {
-                card: cardElement,
-                billing_details: { name: cardHolderName.value }
+        const { setupIntent, error } = await stripe.confirmCardSetup(
+            clientSecret, {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: { name: cardHolderName.value }
+                }
             }
-        }
-    );
-
-    if (error) {
-        // Display "error.message" to the user...
-    } else {
-        // The card has been verified successfully...
-    }
-});
+        ).then(function (result) {
+            if (result.error) {
+                var errorElement = document.getElementById('post-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                const paymentMethodInput = document.getElementById('payment-method');
+                paymentMethodInput.value = result.setupIntent.payment_method;
+                paymentForm.submit();
+            }
+        }); 
+    });
 </script>

@@ -30,6 +30,13 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'line1',
+        'line2',
+        'city',
+        'state',
+        'postal_code',
+        'pm_type',
+        'pm_last_four',
     ];
 
     /**

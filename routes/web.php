@@ -34,6 +34,7 @@ Route::get('/success', [SuccessController::class, 'index'])->name('customer.succ
 
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
 Route::post('/services/checkout', [ServicesController::class, 'store'])->name('to.checkout');
+Route::post('/checkout', [PaymentController::class, 'store'])->name('checkout');
 
 
 Route::get('/upload-documents', [UploadController::class, 'index'])->name('upload.index');

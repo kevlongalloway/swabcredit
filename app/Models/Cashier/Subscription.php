@@ -19,8 +19,5 @@ class Subscription extends CashierSubscription
     protected $fillable = [
         'name',
         'stripe_id',
-        
     ];
-
-    
 }
