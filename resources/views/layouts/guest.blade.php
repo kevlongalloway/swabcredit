@@ -20,7 +20,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="bg-cover bg-gradient-to-r from-cyan-500 to-blue-500">
+    <body>
         <div class=" font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
