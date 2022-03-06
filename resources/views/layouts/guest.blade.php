@@ -9,6 +9,7 @@
         <title>SwabCreditt</title>
 
         <link rel="icon" type="image/x-icon" href="{{ url('../images/favicon.ico') }}">
+        @stack('styles') 
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -24,16 +25,6 @@
         <div class=" font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
-        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-        <script>
-            // Get a reference to the file input element
-            const inputElement = document.querySelectorAll('input[type="file"]');
-
-            // Create a FilePond instance
-            inputElement.forEach(function (inputE) {
-               const pond = FilePond.create(inputE)
-            });
-        </script>
         @stack('scripts')
         @livewireScripts
     </body>
