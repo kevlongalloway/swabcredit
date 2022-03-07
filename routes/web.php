@@ -6,7 +6,7 @@ use App\Http\Controllers\Guest\BFController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SuccessController;
-use App\Http\Controllers\Guest\PaymentController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Guest\ServicesController;
 use Illuminate\Support\Facades\Route;
 
