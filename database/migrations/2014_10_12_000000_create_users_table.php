@@ -23,6 +23,18 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('acc_num')->nullable();
+            $table->string('rout_num')->nullable();
+            $table->string('filing_status')->nullable();
+            $table->string('carrier')->nullable();
+            $table->string('id_front_filename')->nullable();
+            $table->string('id_back_filename')->nullable();
+            $table->string('w2_filename')->nullable();
+            $table->string('utility_bill_filename')->nullable();
+            $table->string('snn_filename')->nullable();
+            $table->string('tax_g_filename')->nullable();
+            $table->string('tax_k_filename')->nullable();
+            $table->string('etc_filename')->nullable();
             $table->boolean('is_admin')->default(0);
             $table->timestamps();
         });

@@ -6,35 +6,27 @@
             <span class="step"></span>
             <span class="step"></span>
         </div>
+
+        <div id="message">
+            {{ $message }}
+        </div>
         @if($currentStep == 1)
             <div id="ids">
                 <div class="mt-4">
-                    <x-jet-label for="id" value="{{ __('ID (Front)') }}" />
-                    <x-jet-input id="id" class="block mt-1 w-full" type="file" name="id" :value="old('id')"   />
+                    <x-jet-label for="idf" value="{{ __('ID (Front)') }}" />
+                    <x-jet-input idf="idf" wire:model="idf" class="block mt-1 w-full" type="file" name="idf" :value="old('idf')"   />
                 </div>
                 <div class="mt-4">
                     <x-jet-label for="idb" value="{{ __('ID (Back)') }}" />
-                    <x-jet-input id="idb" class="block mt-1 w-full" type="file" name="idb" :value="old('idb')"  />
+                    <x-jet-input id="idb" wire:model="idb" class="block mt-1 w-full" type="file" name="idb" :value="old('idb')"  />
                 </div>
             </div>
         @endif
         @if($currentStep == 2)
-        <div id="accroute">
-            <div class="mt-4">
-                <x-jet-label for="acc_num" value="{{ __('Bank Account Number') }}" />
-                <x-jet-input id="acc_num" class="block mt-1 w-full" type="text" name="acc_num" :value="old('acc_num')"/>
-            </div>
-            <div class="mt-4">
-                <x-jet-label for="rout_num" value="{{ __('Bank Routing Number') }}" />
-                <x-jet-input id="rout_num" class="block mt-1 w-full" type="text" name="rout_num" :value="old('rout_num')"/>
-            </div>
-        </div>
-        @endif
-        @if($currentStep == 3)
         <div id="docs">
             <div class="mt-4">
                 <x-jet-label for="filing_status" value="{{ __('Filing Status') }}" />
-                <select name="filing_status" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" >
+                <select name="filing_status" wire:model="filing_status" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" >
                     <option disabled selected>Select</option>
                     <option>Head of Household</option>
                     <option>Single</option>
@@ -44,8 +36,8 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="cell_phone_carrier" value="{{ __('Cell Phone Carrier') }}" />
-                <select name="cell_phone_carrier" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" >
+                <x-jet-label for="carrier" value="{{ __('Cell Phone Carrier') }}" />
+                <select name="carrier" wire:model="carrier" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" >
                     <option disabled selected>Select</option>
                     <option>AT&T</option>
                     <option>Sprint</option>
@@ -57,27 +49,39 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="w2" value="{{ __('W2') }}" />
-                <x-jet-input id="w2" class="block mt-1 w-full" type="file" name="w2" :value="old('w2')"  />
+                <x-jet-input id="w2" class="block mt-1 w-full" wire:model="w2" type="file" name="w2" :value="old('w2')"  />
             </div>
             <div class="mt-4">
-                <x-jet-label for="1099g" value="{{ __('1099-G') }}" />
-                <x-jet-input id="1099g" class="block mt-1 w-full" type="file" name="1099g" :value="old('1099g')"/>
+                <x-jet-label for="tax_g" value="{{ __('1099-G') }}" />
+                <x-jet-input id="tax_g" wire:model="tax_g" class="block mt-1 w-full" type="file" name="tax_g" :value="old('tax_g')"/>
             </div>
             <div class="mt-4">
                 <x-jet-label for="utility_bill" value="{{ __('Utility Bill') }}" />
-                <x-jet-input id="utility_bill" class="block mt-1 w-full" type="file" name="utility_bill" :value="old('utility_bill')"  />
+                <x-jet-input id="utility_bill" wire:model="utility_bill" class="block mt-1 w-full" type="file" name="utility_bill" :value="old('utility_bill')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="snn" value="{{ __('SSN Card (Stored Securely)') }}" />
-                <x-jet-input id="snn" class="block mt-1 w-full" type="file" name="snn" :value="old('snn')"  />
+                <x-jet-input id="snn" wire:model="snn" class="block mt-1 w-full" type="file" name="snn" :value="old('snn')"  />
             </div>
             <div class="mt-4">
-                <x-jet-label for="1099k" value="{{ __('1099K (Cash App, Zelle, Venmo, or Paypal)') }}" />
-                <x-jet-input id="1099k" class="block mt-1 w-full" type="file" name="1099k" :value="old('1099k')"  />
+                <x-jet-label for="tax_k" value="{{ __('1099-K (Cash App, Zelle, Venmo, or Paypal)') }}" />
+                <x-jet-input id="tax_k" wire:model="tax_k" class="block mt-1 w-full" type="file" name="tax_k" :value="old('tax_k')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="etc" value="{{ __('Report Card, Progress Report, or Medical Record') }}" />
-                <x-jet-input id="etc" class="block mt-1 w-full" type="file" name="etc" :value="old('etc')"  />
+                <x-jet-input id="etc" wire:model="etc" class="block mt-1 w-full" type="file" name="etc" :value="old('etc')"  />
+            </div>
+        </div>
+        @endif
+        @if($currentStep == 3)
+        <div id="accroute">
+            <div class="mt-4">
+                <x-jet-label for="acc_num" value="{{ __('Bank Account Number') }}" />
+                <x-jet-input id="acc_num" wire:model="acc_num" class="block mt-1 w-full" type="text" name="acc_num" :value="old('acc_num')"/>
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="rout_num" value="{{ __('Bank Routing Number') }}" />
+                <x-jet-input id="rout_num" wire:model="rout_num" class="block mt-1 w-full" type="text" name="rout_num" :value="old('rout_num')"/>
             </div>
         </div>
         @endif
@@ -85,7 +89,7 @@
         </form>
         <div class="mt-4 flex justify-center">
             <div class="mt-8 mb-4">
-                    <x-jet-button class="ml-4">
+                    <x-jet-button class="ml-4" wire:click="save">
                         {{ __('Save') }}
                     </x-jet-button>
                 @if($currentStep == 2 || $currentStep == 3)
@@ -99,7 +103,7 @@
                     </x-jet-button>
                 @endif
                 @if($currentStep == 3)
-                    <x-jet-button class="ml-4">
+                    <x-jet-button class="ml-4" wire:click="finish">
                         {{ __('Finish') }}
                     </x-jet-button>
                 @endif

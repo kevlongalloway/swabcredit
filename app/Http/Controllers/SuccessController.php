@@ -11,8 +11,11 @@ class SuccessController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type)
     {
-        return view('customer.success');
+        return view('customer.success', [
+            'title' => __('messages.' . $type . '.title'),
+            'message' => __('messages.' . $type . '.message')
+        ]);
     }
 }

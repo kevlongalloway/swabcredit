@@ -40,5 +40,7 @@ Route::post('/checkout', [PaymentController::class, 'store'])->name('checkout');
 Route::get('/upload-documents', [UploadController::class, 'index'])->name('upload.index');
 Route::post('/upload-documents', [UploadController::class, 'store'])->name('upload.store');
 
+Route::get('/success/{type}', [SuccessController::class, 'index'])->name('success');
+
 
 require_once __DIR__ . '/jetstream.php';
