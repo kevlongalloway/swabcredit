@@ -28,9 +28,8 @@
             background-color: #04AA6D;
             }  */          
         </style>    
-        <x-jet-validation-errors class="mb-4" />
+        
         <div class="form-outer">
-            
             <livewire:upload-form />
         </div>
     </x-jet-authentication-card>

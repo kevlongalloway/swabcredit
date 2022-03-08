@@ -1,5 +1,5 @@
 <div>
-    <form id="upForm" method="POST" action="{{ route('upload.store') }}">
+    <form id="upForm" method="POST" action="{{ route('upload.store') }}" enctype="multipart/form-data">
         @csrf
         <div style="text-align:center;margin-top:40px;">
             <span class="step"></span>
@@ -10,11 +10,19 @@
         <div id="message">
             {{ $message }}
         </div>
+        @if ($errors->any())
+            <div class="font-medium text-red-600">{{ __('Whoops! Something went wrong.') }}</div>
+            <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         @if($currentStep == 1)
             <div id="ids">
                 <div class="mt-4">
                     <x-jet-label for="idf" value="{{ __('ID (Front)') }}" />
-                    <x-jet-input idf="idf" wire:model="idf" class="block mt-1 w-full" type="file" name="idf" :value="old('idf')"   />
+                    <x-jet-input idf="idf" wire:model="idf" class="block mt-1 w-full" type="file" name="idf" value="old('idf')"   />
                 </div>
                 <div class="mt-4">
                     <x-jet-label for="idb" value="{{ __('ID (Back)') }}" />
