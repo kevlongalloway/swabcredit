@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ url('/underexpress/plugins/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('/underexpress/font-awesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('/underexpress/plugins/animatecss/css/animate.min.css') }}">
@@ -25,6 +26,18 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            .svg{
+              position: absolute;
+            }
+            .svg2{
+              position: relative;
+              height: 50%;
+              width: 100%;
+            }
+            .svg3{
+              position: absolute;
+            }
+
         </style>
     </head>
     <!-- <body class="antialiased">
@@ -58,10 +71,10 @@
 
                 </div>
             @endif -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style-4 font-title py-3">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-hue-dark cwhite navbar-style-4 font-title py-2">
               <div class="container">
                 <a class="navbar-brand-custom" href="#"><img src="{{ url('../images/logo.png') }}" width="30px" class="mr-2" style="vertical-align: bottom;">
-                    <span class="navbar-logo-text" style="vertical-align: bottom;"><b>wab</b>Credit</a></span>
+                    <span class="navbar-logo-text" style="vertical-align: bottom;"><b>wab</b>Credit & Trust</a></span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent4" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,9 +95,7 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#pricing">Pricing</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Make a Payment</a>
-                    </li>
+
 
                   </ul>
                   <ul class="navbar-nav ml-auto">
@@ -118,163 +129,154 @@
                 </div>
               </div>
             </nav>
-
-                    <header class="header-style-1 py-5" style="width: 100%; margin-top: 0; ">
-
-                        <div class="overlay op-3"></div>
-                        <div class="container">
-                          <div class="content p-relative z-1">
-                            <h1 class="font-title p-3 text-center my-4 cwhite font-jumbo"><b><span><img src="{{ url('../images/logo.png') }}" style="position:relative; width: 60px; top: -.5rem;"></span>wabCredit</b></h1>
-                            <p class="paragraph cwhite p-2 text-center col-12 col-sm-6 mx-auto" style="font-size: 1.5rem;">Trust Where You're Going Trust <span> <img src="{{ url('../images/logo.png') }}" style="width: 30px; position: relative; top: -.5rem;"></span>wab</p>
-                            <div class="col-12 text-center mt-5">
-                                <a href="{{ route('register') }}" class="btn btn-warning  m-2">Get Started<i class="fa fa-chevron-right ml-3"></i></a>
-                                <a href="" class="btn btn-outline-warning  m-2">Know More<i class="fa fa-chevron-down ml-3"></i></a>
-                                </div>
+            <svg class="svg z-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+              <defs>
+              <linearGradient id="topGradient" gradientTransform="rotate(90)">
+                <stop offset="5%"  stop-color="#EEBC1D" />
+                <stop offset="95%" stop-color="#FFA500" />
+              </linearGradient>
+              </defs>
+              <path fill="url('#topGradient')" fill-opacity="1" d="M0,0L120,0C240,0,480,0,720,21.3C960,43,1200,85,1320,106.7L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path></svg>
+                    <header class="bg-hue-dark" style="width: 100%; height: 100%; margin-top: 0; ">
+                        <div class="container  p-6">
+                          <div class="content p-relative z-1 mt-5 flex flex-row">
+                            <div class="basis-1/2" style="flex:50%;">
+                              <h2 class="font-title p-3 text-center my-1 cwhite font-jumbo antialiased"><span><img src="{{ url('../images/logo.png') }}" style="position:relative; width: 60px; top: -.5rem;"><b class="font-weight-bold">wab</b>Credit & Trust</span></h2>
+                              <p class="paragraph font-title cwhite text-center col-12 col-sm-6 mx-auto " style="font-size: 1.5rem;">Tax Paper Services </p> 
                             </div>
+                            <div class="text-center mt-5 basis-1/3">
+                                <a href="{{ route('register') }}" class="btn btn-warning  m-2">Get a Quote<i class="fa fa-chevron-right ml-3"></i></a>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+
+
+
+
+                        <svg class="svg2 h-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <defs>
+                          <linearGradient id="myGradient" gradientTransform="rotate(90)">
+                            <stop offset="5%"  stop-color="#880808" />
+                            <stop offset="95%" stop-color="red" />
+                          </linearGradient>
+                          <linearGradient id="myGradient2" gradientTransform="rotate(90)">
+                            <stop offset="5%"  stop-color="#FFA500" />
+                            <stop offset="95%" stop-color="#EEBC1D" />
+                          </linearGradient>
+                        </defs>
+                          <g>
+                           <path fill="url('#myGradient')" fill-opacity="1" d="M0,256L120,213.3C240,171,480,85,720,42.7C960,0,1200,0,1320,0L1440,0L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+                           <foreignobject class="node" x="1000" y="42" width="350" height="600">
+                              <div style="color:white; text-align:center;  font-size:15px;">
+                                Contact
+                                <ul style="text-align:left;">
+                                  <li style="margin:10px;">
+                                    <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:1px; float:left;">(404)-941-5509
+                                  </li>
+                                  <li style="margin:10px;">
+                                  <img src="{{ url('../images/mailcon.png') }}" style="height:1.3em; margin:1px; float:left;">HQ.SWABCREDIT@GMAIL.COM
+                                  </li>  
+                                  <li style="margin:10px;">
+                                  <img src="{{ url('../images/address.png') }}" style="height:1.5em; margin:1px; float:left;">1049 powers Ferry Rd.<br>Marietta, GA 30067 
+                                  </li>    
+                                </ul> 
+                              </div>                
+                            </foreignobject>
+                          </g>
+                          <path fill="url('#myGradient2')" fill-opacity="1" d="M0,64L80,74.7C160,85,320,107,480,144C640,181,800,235,960,261.3C1120,288,1280,288,1360,288L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
                     </header>
+                    <div class="w-100" style="background-color:#EEBC1D; height:50vh;">
+                      <h2 class="font-jumbo text-center font-title font-weight-bold" style="width:100%;">
+                      Services
+                      </h2>
+                      <div class="container h-75">
+                      <div id="carouselExampleIndicators" class="carousel slide p-5 h-100" data-ride="carousel">
+                        <ol class="carousel-indicators p-5">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner shadow-lg" style="height:100%;">
+                          <div class="carousel-item h-100 border shadow rounded active" style="background: linear-gradient(#880808, red);">
+                            <div class="container d-block w-100  text-center cwhite"  alt="First slide">
+                            <h2>Service 1 </h2>  
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis ipsa soluta autem hic, minus consequatur vero quia nulla sunt earum illo eos accusantium dignissimos! Dolore ad vitae optio deserunt.
+                            </p>
+                            </div>
+                          </div>
 
-                        <section class="feature-style-4 bg-dark cwhite" style="padding: 5em 0 5em 0">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-12 p-4">
-                    <div class="text-center">
-                        <i class="font-jumbo fa fa-code"></i>
-                        <h4 class="font-title py-3">Credit Restoration</h4>
-                        <p class="py-2">UnderExpress uses modular css classes, which helps you ship quickly with cleaner code.</p>
+                          <div class="carousel-item h-100 border shadow rounded bg-hue-dark" >
+                            <div class="container d-block w-100 text-center cwhite"  alt="Second slide">
+                            <h2>Service 2 </h2>  
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis ipsa soluta autem hic, minus consequatur vero quia nulla sunt earum illo eos accusantium dignissimos! Dolore ad vitae optio deserunt.
+                            </p>
+                            </div>
+                          </div>
+                          <div class="carousel-item h-100 border shadow rounded" style="background: linear-gradient(#880808, red);">
+                            <div class="container d-block w-100 text-center cwhite"  alt="Third slide">
+                            <h2>Service 3</h2>  
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis ipsa soluta autem hic, minus consequatur vero quia nulla sunt earum illo eos accusantium dignissimos! Dolore ad vitae optio deserunt.
+                            </p>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-4 col-12 p-4">
-                    <div class="text-center">
-                        <i class="font-jumbo fa fa-cubes"></i>
-                        <h4 class="font-title py-3">Modular</h4>
-                        <p class="py-2">UnderExpress uses modular css classes, which helps you ship quickly with cleaner code.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-12 p-4">
-                    <div class="text-center">
-                        <i class="font-jumbo fa fa-money"></i>
-                        <h4 class="font-title py-3">Affordable</h4>
-                        <p class="py-2">UnderExpress comes absolutely free, which makes it most the affodable website framework.</p>
-                    </div>
-                </div>
+    <section class="pb-3" id="pricing" style="background: linear-gradient(#880808, red); width:100%; height:100vh;">
+    <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <defs>
+        <linearGradient id="picGradient" gradientTransform="rotate(90)">
+          <stop offset="5%"  stop-color="#EEBC1D" />
+          <stop offset="95%" stop-color="#FFA500" />
+        </linearGradient>
+      </defs>
 
-            </div>
-        </div>
+      <path fill="url('#picGradient')" fill-opacity="1" d="M0,96L120,90.7C240,85,480,75,720,112C960,149,1200,235,1320,277.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+    </svg>
+    <div class="container d-flex flex-column justify-content-center align-items-center h-100 p-20">
+        <div>
+                        <h1 class="w-100 cwhite font-jumbo text-center font-title font-weight-bold">Why Swab?</h1>
+                        <p class=" py-5 w-100 text-center paragraph cwhite">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel natus aliquid repudiandae dolorum, obcaecati iste aliquam. Non nam, rem id architecto commodi harum reiciendis, qui repellendus optio, ipsa ab alias. 
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officia doloremque optio veniam. Nihil fuga eveniet alias laborum illo quia, nostrum doloremque dolorum rem deleniti dolorem qui ea voluptas incidunt?
+                          <br>
+                          <br>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nesciunt maxime ullam, veniam dignissimos quas voluptatum temporibus accusamus quisquam, eius amet laborum modi reprehenderit sed. 
+                          Quo alias ipsam minima eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores cum blanditiis ipsum, dolorum quod ducimus consequatur doloribus sunt necessitatibus at perferendis! Totam a ex exercitationem nesciunt dolorem, cum minima impedit.
+                        </p>
+                        </div> 
+                        
+          </div>
+                
+      </div>
+      
     </section>
+ 
+    <div class="bg-hue-dark" style="height:100vh;">
+    <svg class="svg3"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="red" fill-opacity="1" d="M0,160L60,154.7C120,149,240,139,360,133.3C480,128,600,128,720,144C840,160,960,192,1080,176C1200,160,1320,96,1380,64L1440,32L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+      </svg>
+    </div>  
 
 
-    <section class="pricing-style-2 bg-white p-3" id="pricing">
-      <div class="container">
-      <div class="row">
-      <div class="col-10 col-md-8 col-lg-4 py-2 mx-auto">
-        <div class="card font-title text-center">
-          <div class="card-header bg-light">
-          <h5>Basic</h5>
-
-        </div>
-        <div class="card-body text-center">
-          <h1 class="p-2">Free</h1>
-          <p class="p-2">forever</p>
-          <ul class="p-0">
-            <li class="p-2">Responsive </li>
-            <li class="p-2">Complete documentation </li>
-            <li class="p-2">Email Notifications </li>
-            <li class="p-2 text-muted"><del>SMS Notifications</del> </li>
-            <li class="p-2 text-muted"><del>Unlimited Storage</del>  </li>
-            <li class="p-2 text-muted"><del>Access to Library</del> </li>
-            <li class="p-2 text-muted"><del>Priority Support</del> </li>
-
-          </ul>
-        </div>
-        <div class="card-footer bg-dark p-3 text-center "><a href="#"><i class="fa fa-shopping-cart cwhite"></i></a></div>
-        </div>
-      </div>
-      <div class="col-10 col-md-8 col-lg-4 py-2 mx-auto">
-        <div class="card font-title text-center">
-          <div class="card-header bg-light">
-          <h5>Premium</h5>
-
-        </div>
-        <div class="card-body text-center">
-          <h1 class="p-2">$ 50</h1>
-          <p class="p-2">Per Month</p>
-          <ul class="p-0">
-            <li class="p-2">Responsive </li>
-            <li class="p-2">Complete documentation </li>
-            <li class="p-2">Email Notifications </li>
-            <li class="p-2">SMS Notifications </li>
-            <li class="p-2">Unlimited Storage  </li>
-            <li class="p-2 text-muted"><del> Access to Library</del> </li>
-            <li class="p-2 text-muted"><del>Priority Support</del> </li>
-
-          </ul>
-        </div>
-        <div class="card-footer bg-dark p-3 text-center "><a href="#"><i class="fa fa-shopping-cart cwhite"></i></a></div>
-        </div>
-      </div>
-      <div class="col-10 col-md-8 col-lg-4 py-2 mx-auto">
-        <div class="card font-title text-center">
-          <div class="card-header bg-light">
-          <h5>Pro</h5>
-
-        </div>
-        <div class="card-body text-center">
-          <h1 class="p-2">$ 100</h1>
-          <p class="p-2">Per Month</p>
-          <ul class="p-0">
-            <li class="p-2">Responsive </li>
-            <li class="p-2">Complete documentation </li>
-            <li class="p-2">Email Notifications </li>
-            <li class="p-2">SMS Notifications </li>
-            <li class="p-2">Unlimited Storage  </li>
-            <li class="p-2">Access to Library </li>
-            <li class="p-2">Priority Support </li>
-          </ul>
-        </div>
-        <div class="card-footer bg-dark p-3 text-center "><a href="#" ><i class="fa fa-shopping-cart cwhite"></i></a></div>
-        </div>
-
-      </div>
-    </div>
-    </div>
-  </section>
-
-    <section class="background-cover p-5 form-style-3 p-relative" style="background-image: '';">
-
-    <div class="overlay bg-dark op-4"></div>
-    <div class="container">
-    <div class="content p-relative">
-      <h2 class="font-title mb-4 cwhite text-center">Subscribe Here!</h2>
-      <div class="row">
-
-        <div class="col-12 col-md-3">
-          <label>Name</label>
-          <input type="text" class="form-control form-control-lg bg-transparent mb-3" >
-        </div>
-        <div class="col-12 col-md-4">
-          <label>Email</label>
-          <input type="email" class="form-control form-control-lg  bg-transparent mb-3"  >
-        </div>
-        <div class="col-12 col-md-4">
-          <label>Contact Number</label>
-          <input type="text" class="form-control form-control-lg  bg-transparent mb-3"  >
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-10 col-md-4 mx-auto text-center">
-          <button type="submit" class="btn btn-rounded btn-primary btn-lg mx-auto px-5 material-shadow mt-3">Subscribe</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
   <footer class="footer-style-5 p-3 bg-hue-dark cwhite">
     <div class="row">
-      <div class="col-12 col-lg-3 my-1 text-left py-2">
+      <div class="col-12 col-lg-3 my-1 text-lef">
         <img src="{{ url('../images/logo.png') }}" width="30px" class="mr-2"><span class="font-title h5" style="position: relative; left: -.3em; top:.25em;"><b>wab</b>Credit</span><br>
         <small class="lighter mb-3 op-7">&copy 2017 SwabCredit</small>
 
@@ -302,7 +304,6 @@
                 </div>
             </div>
         </div>
-
 
         <script src="{{ url('/underexpress/plugins/jquery/jquery-3.2.0.min.js') }}"></script>
         <script src="{{ url('/underexpress/plugins/popper/popper.js') }}"></script>
