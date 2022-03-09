@@ -294,6 +294,9 @@
     .w-auto {
       width: auto
     }
+    .min-h-fit {
+      min-height:fit-content;
+    }
 
     .grid-cols-1 {
       grid-template-columns: repeat(1, minmax(0, 1fr))
@@ -403,12 +406,16 @@
         color: #6b7280;
         color: rgba(107, 114, 128, var(--tw-text-opacity))
       }
+
     }
   </style>
 
   <style>
     body {
       font-family: 'Nunito', sans-serif;
+    }
+    ul{
+      padding-inline-start: 0px !important;
     }
     .splashcon{
       width:60px;
@@ -436,6 +443,24 @@
       display:flex;
       flex-direction:row;
     }
+    .car-container{
+      min-height: max-content;
+    }
+    .contact-table{
+      color:white;
+      text-align:left;
+      font-size:16px;
+      width: 100%; 
+      display: flex;
+      justify-content:center;
+    }
+    .contact-table ul li{
+      text-align: left;
+    }
+    .car-indicators-padding{
+      padding:3rem
+    }
+
     @media (max-width:768px) {
       .no-show{
         display:none;
@@ -450,6 +475,32 @@
       display:flex;
       flex-direction:column;
     }
+    .mobile-text{
+      font-size:12px;
+    }
+    .mobile-text-big{
+      font-size:13px;
+    }
+    .mobile-text-sm{
+      font-size:10px
+    }
+    .contact-table{
+      color:white;
+      font-size:12x;
+      width:100%;
+    }
+    .contact-table ul{
+      text-align: left;
+      padding-inline-start: 0px !important;
+    }
+    .contact-table ul li{
+      text-align: left;
+    }
+    .car-indicators-padding{
+      padding:1.5rem
+    }
+      
+  
     }
   </style>
 </head>
@@ -484,7 +535,7 @@
 
                 </div>
             @endif -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-hue-dark cwhite navbar-style-4 font-title py-2 fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-hue-dark cwhite navbar-style-4 font-title py-2 sm:py-4 fixed-top">
   <div class="container">
     <a class="navbar-brand-custom" href="#"><img src="{{ url('../images/logo.png') }}" class="navcon mr-2"
         style="vertical-align: bottom;">
@@ -494,14 +545,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent4">
+    <div class="collapse navbar-collapse mobile-text" id="navbarSupportedContent4">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Services
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu mobile-text" aria-labelledby="navbarDropdownMenuLink">
             @foreach($services as $s)
             <a class="dropdown-item" href="{!! route('guest.services', $s->path) !!}">{{ $s->name }}</a>
             @endforeach
@@ -555,7 +606,7 @@
   <path fill="url('#topGradient')" fill-opacity="1"
     d="M0,0L120,0C240,0,480,0,720,21.3C960,43,1200,85,1320,106.7L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
   </path>
-</svg>
+</svg >
 <header class="bg-hue-dark" style="width: 100%; height: 100%; margin-top: 0; ">
   <div class="container  p-6">
     <div class="content p-relative z-1 mt-5 splash-content" >
@@ -578,7 +629,7 @@
 
 
 
-  <svg class="svg2 h-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="xMinYMin">
+  <svg class="svg2 h-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
     <defs>
       <linearGradient id="myGradient" gradientTransform="rotate(90)">
         <stop offset="5%" stop-color="#880808" />
@@ -594,18 +645,21 @@
         d="M0,256L120,213.3C240,171,480,85,720,42.7C960,0,1200,0,1320,0L1440,0L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
       </path>
       <foreignobject class="node" x="1000" y="42" width="350" height="600">
-        <div class="no-show" style="color:white; text-align:center;  font-size:16px;" font-size="16">
-          Contact
-          <ul style="text-align:left;">
+      <div class="show mobile-text contact-table no-show" >
+        <div class="d-flex flex-column">
+        <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:10px; float:left;">
+        <img src="{{ url('../images/mailcon.png') }}" style="height:1.3em; margin:10px; float:left;">
+        <img src="{{ url('../images/address.png') }}" style="height:1.3em; margin:10px; float:left;">
+        </div>
+          <ul class="" style="text-align:center;">
             <li style="margin:10px;">
-              <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:1px; float:left;">(404)-941-5509
+              (404)-941-5509
             </li>
             <li style="margin:10px;">
-              <img src="{{ url('../images/mailcon.png') }}"
-                style="height:1.3em; margin:1px; float:left;">HQ.SWABCREDIT@GMAIL.COM
+              HQ.SWABCREDIT@GMAIL.COM
             </li>
             <li style="margin:10px;">
-              <img src="{{ url('../images/address.png') }}" style="height:1.5em; margin:1px; float:left;">1049 Powers
+              1049 Powers
               Ferry Rd.<br>Marietta, GA 30067
             </li>
           </ul>
@@ -621,8 +675,8 @@
   <h2 class="font-jumbo text-center font-title font-weight-bold" style="width:100%;">
     Services
   </h2>
-  <div class="container h-75">
-    <div id="carouselExampleIndicators" class="carousel slide p-5 h-100" data-ride="carousel">
+  <div class="container h-75 car-container">
+    <div id="carouselExampleIndicators" class="carousel slide h-100 min-h-fit car-indicators-padding" data-ride="carousel">
       <ol class="carousel-indicators p-5">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -632,8 +686,8 @@
         <div class="carousel-item h-100 border shadow rounded active"
           style="background: linear-gradient(#880808, red);">
           <div class="container d-block w-100  text-center cwhite" alt="First slide">
-            <h1>Service 1 </h1>
-            <h2 class="text-base">
+            <h1>Service 1</h1>
+            <h2 class="text-base mobile-text-big">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis ipsa soluta autem hic, minus
               consequatur vero quia nulla sunt earum illo eos accusantium dignissimos! Dolore ad vitae optio deserunt.
         </h2>
@@ -643,7 +697,7 @@
         <div class="carousel-item h-100 border shadow rounded bg-hue-dark">
           <div class="container d-block w-100 text-center cwhite" alt="Second slide">
             <h1>Service 2 </h1>
-            <h2 class="text-base"> 
+            <h2 class="text-base mobile-text-big"> 
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis ipsa soluta autem hic, minus
               consequatur vero quia nulla sunt earum illo eos accusantium dignissimos! Dolore ad vitae optio deserunt.
         </h2>
@@ -652,7 +706,7 @@
         <div class="carousel-item h-100 border shadow rounded" style="background: linear-gradient(#880808, red);">
           <div class="container d-block w-100 text-center cwhite" alt="Third slide">
             <h1>Service 3</h1>
-            <h2 class="text-base">
+            <h2 class="text-base mobile-text-big">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis ipsa soluta autem hic, minus
               consequatur vero quia nulla sunt earum illo eos accusantium dignissimos! Dolore ad vitae optio deserunt.
         </h2>
@@ -671,7 +725,7 @@
   </div>
 </div>
 <section class="pb-3" id="pricing" style="background: linear-gradient(#880808, red); width:100%; height:100%;">
-  <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
     <defs>
       <linearGradient id="picGradient" gradientTransform="rotate(90)">
         <stop offset="5%" stop-color="#EEBC1D" />
@@ -708,7 +762,7 @@
 </section>
 
 <div class="bg-hue-dark" style="height:100%;">
-  <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
     <defs>
         <linearGradient id="picGradient4" gradientTransform="rotate(90)">
           <stop offset="5%" stop-color="red" />
@@ -723,17 +777,21 @@
   <h2 class="font-jumbo text-center font-title font-weight-bold cwhite align-self-start" style="width:100%;">
     Contact Us
   </h2>
-  <div class="show w-100 d-flex flex-column justify-content-center align-items-center" style="color:white; text-align:center;  font-size:16px;" font-size="16">
-          <ul class="w-75" style="text-align:center;">
+  <div class="show mobile-text contact-table" >
+        <div class="d-flex flex-column">
+        <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:10px; float:left;">
+        <img src="{{ url('../images/mailcon.png') }}" style="height:1.3em; margin:10px; float:left;">
+        <img src="{{ url('../images/address.png') }}" style="height:1.3em; margin:10px; float:left;">
+        </div>
+          <ul class="" style="text-align:center;">
             <li style="margin:10px;">
-              <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:1px; float:left;">(404)-941-5509
+              (404)-941-5509
             </li>
             <li style="margin:10px;">
-              <img src="{{ url('../images/mailcon.png') }}"
-                style="height:1.3em; margin:1px; float:left;">HQ.SWABCREDIT@GMAIL.COM
+              HQ.SWABCREDIT@GMAIL.COM
             </li>
             <li style="margin:10px;">
-              <img src="{{ url('../images/address.png') }}" style="height:1.5em; margin:1px; float:left;">1049 Powers
+              1049 Powers
               Ferry Rd.<br>Marietta, GA 30067
             </li>
           </ul>
@@ -768,14 +826,11 @@
       margin-top: 6px;
     }
 
-    /* Clear floats after the columns */
     .contactrow:after {
       content: "";
       display: table;
       clear: both;
     }
-
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
       .col-25, .col-75, input[type=submit] {
         width: 100%;
@@ -841,13 +896,14 @@
 <footer class="footer-style-5 p-5 bg-hue-dark cwhite">
   <div class="row">
     <div class="col-12 col-lg-3 my-1 d-flex flex-column justify-content-center align-items-center">
-      <img src="{{ url('../images/logo.png') }}" width="30px" class="mr-2"><span class="font-title h5"
-        style="position: relative; left: -.3em; top:.25em;"><b>wab</b>Credit</span><br>
-      <small class="lighter mb-3 op-7">&copy 2017 SwabCredit</small>
+    <span class="font-title h5"
+        style="position: relative; left: -.3em; top:.25em;">
+      <img src="{{ url('../images/logo.png') }}" width="30px" class="navcon mr-2"><b>wab</b>Credit</span><br>
+      <small class="lighter mb-3 op-7 mobile-text-sm">&copy 2017 SwabCredit</small>
 
     </div>
     <div class="col-12 col-lg-6 py-2 text-center">
-      <ul class="p-0 font-title">
+      <ul class="p-0 font-title mobile-text">
         <li class="inline"><a href="#" class="uppercase m-2 inline">About</a></li>
         <li class="inline"><a href="#" class="uppercase m-2 inline">Contact</a></li>
         <li class="inline"><a href="#" class="uppercase m-2 inline">Support</a></li>
