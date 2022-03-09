@@ -410,7 +410,9 @@
     body {
       font-family: 'Nunito', sans-serif;
     }
-
+    .splashcon{
+      width:60px;
+    }
     .svg {
       position: absolute;
     }
@@ -426,11 +428,20 @@
     }
     .no-show{
         display: block;
-      }
+    }
+    .navcon{
+      width:30px
+    }
     @media (max-width:768px) {
       .no-show{
         display:none;
       }
+      .splashcon{
+      width:36px;
+    }
+    .navcon{
+      width:20px
+    }
     }
   </style>
 </head>
@@ -465,9 +476,9 @@
 
                 </div>
             @endif -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-hue-dark cwhite navbar-style-4 font-title py-2">
+<nav class="navbar navbar-expand-lg navbar-dark bg-hue-dark cwhite navbar-style-4 font-title py-2 fixed-top">
   <div class="container">
-    <a class="navbar-brand-custom" href="#"><img src="{{ url('../images/logo.png') }}" width="30px" class="mr-2"
+    <a class="navbar-brand-custom" href="#"><img src="{{ url('../images/logo.png') }}" class="navcon mr-2"
         style="vertical-align: bottom;">
       <span class="navbar-logo-text" style="vertical-align: bottom;"><b>wab</b>Credit & Trust</a></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent4"
@@ -546,8 +557,8 @@
           }
       </style>
       <div class="basis-1/2" style="flex:50%;">
-        <h2 class="font-title p-3 text-center my-1 cwhite font-jumbo antialiased"><span><img
-              src="{{ url('../images/logo.png') }}" style="position:relative; width: 60px; top: -.5rem;"><b
+        <h2 class="font-title p-3 text-center my-1 cwhite font-jumbo antialiased"><span><img class="splashcon"
+              src="{{ url('../images/logo.png') }}" style="position:relative; top: -.5rem;"><b
               class="font-weight-bold">wab</b>Credit & Trust</span></h2>
         <p class="paragraph font-title cwhite text-center col-12 col-sm-6 mx-auto " style="font-size: 1.5rem;">Tax Paper
           Services </p>
