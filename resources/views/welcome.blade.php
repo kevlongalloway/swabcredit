@@ -443,9 +443,6 @@
       display:flex;
       flex-direction:row;
     }
-    .car-container{
-      min-height: max-content;
-    }
     .contact-table{
       color:white;
       text-align:left;
@@ -456,6 +453,9 @@
     }
     .contact-table ul li{
       text-align: left;
+    }
+    .carbox{
+      height: 100%;
     }
     .car-indicators-padding{
       padding:3rem
@@ -649,7 +649,7 @@
         <div class="d-flex flex-column">
         <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:10px; float:left;">
         <img src="{{ url('../images/mailcon.png') }}" style="height:1.3em; margin:10px; float:left;">
-        <img src="{{ url('../images/address.png') }}" style="height:1.3em; margin:10px; float:left;">
+        <img src="{{ url('../images/address.png') }}" style="height:1.6em; margin:10px; float:left;">
         </div>
           <ul class="" style="text-align:center;">
             <li style="margin:10px;">
@@ -671,18 +671,18 @@
     </path>
   </svg>
 </header>
-<div class="w-100" style="background-color:#EEBC1D; height:50vh;">
+<div class="w-100 min-h-full" style="background-color:#EEBC1D;">
   <h2 class="font-jumbo text-center font-title font-weight-bold" style="width:100%;">
     Services
   </h2>
-  <div class="container h-75 car-container">
-    <div id="carouselExampleIndicators" class="carousel slide h-100 min-h-fit car-indicators-padding" data-ride="carousel">
+  <div class="container h-75 min-h-fit">
+    <div id="carouselExampleIndicators" class="carousel slide h-100 min-h-fit car-indicators-padding carbox" data-ride="carousel">
       <ol class="carousel-indicators p-5">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner shadow-lg" style="height:100%;">
+      <div class="carousel-inner shadow" style="height:100%;">
         <div class="carousel-item h-100 border shadow rounded active"
           style="background: linear-gradient(#880808, red);">
           <div class="container d-block w-100  text-center cwhite" alt="First slide">
@@ -781,7 +781,7 @@
         <div class="d-flex flex-column">
         <img src="{{ url('../images/phone.png') }}" style="height:1.5em; margin:10px; float:left;">
         <img src="{{ url('../images/mailcon.png') }}" style="height:1.3em; margin:10px; float:left;">
-        <img src="{{ url('../images/address.png') }}" style="height:1.3em; margin:10px; float:left;">
+        <img src="{{ url('../images/address.png') }}" style="height:1.6em; margin:10px; float:left;">
         </div>
           <ul class="" style="text-align:center;">
             <li style="margin:10px;">
