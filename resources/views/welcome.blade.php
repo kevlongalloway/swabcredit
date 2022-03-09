@@ -432,6 +432,10 @@
     .navcon{
       width:30px
     }
+    .splash-content{
+      display:flex;
+      flex-direction:row;
+    }
     @media (max-width:768px) {
       .no-show{
         display:none;
@@ -441,6 +445,10 @@
     }
     .navcon{
       width:20px
+    }    
+    .splash-content{
+      display:flex;
+      flex-direction:column;
     }
     }
   </style>
@@ -550,12 +558,8 @@
 </svg>
 <header class="bg-hue-dark" style="width: 100%; height: 100%; margin-top: 0; ">
   <div class="container  p-6">
-    <div class="content p-relative z-1 mt-5 flex-sm-column flex-md-row" >
-      <style media="all and (min-width: 640px)">
-            .sm\:flex-col {
-              flex-direction: column;
-          }
-      </style>
+    <div class="content p-relative z-1 mt-5 splash-content" >
+
       <div class="basis-1/2" style="flex:50%;">
         <h2 class="font-title p-3 text-center my-1 cwhite font-jumbo antialiased"><span><img class="splashcon"
               src="{{ url('../images/logo.png') }}" style="position:relative; top: -.5rem;"><b
