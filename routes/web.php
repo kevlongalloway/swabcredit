@@ -32,6 +32,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/success', [SuccessController::class, 'index'])->name('customer.success');
 
+Route::get('/products', function () {
+    return view('products');
+})->name('products');
+
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
 Route::post('/services/checkout', [ServicesController::class, 'store'])->name('to.checkout');
 Route::post('/checkout', [PaymentController::class, 'store'])->name('checkout');

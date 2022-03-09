@@ -22,7 +22,7 @@ class PaymentController extends Controller
         
         //$user->checkout($stripe_name);
         //$user->newSubscription($stripe_name, $stripe_id)->create($paymentMethod);
-
+        $request->session()->flush();
         return redirect()->route('success', ['type' => 'checkout']);
     }
 }
