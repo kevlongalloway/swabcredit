@@ -420,6 +420,7 @@
     .splashcon{
       width:60px;
     }
+
     .svg {
       position: absolute;
     }
@@ -596,17 +597,7 @@
     </div>
   </div>
 </nav>
-<svg class="svg z-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-  <defs>
-    <linearGradient id="topGradient" gradientTransform="rotate(90)">
-      <stop offset="5%" stop-color="#EEBC1D" />
-      <stop offset="95%" stop-color="#FFA500" />
-    </linearGradient>
-  </defs>
-  <path fill="url('#topGradient')" fill-opacity="1"
-    d="M0,0L120,0C240,0,480,0,720,21.3C960,43,1200,85,1320,106.7L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
-  </path>
-</svg >
+
 <header class="bg-hue-dark" style="width: 100%; height: 100%; margin-top: 0; ">
   <div class="container  p-6">
     <div class="content p-relative z-1 mt-5 splash-content" >
@@ -632,12 +623,12 @@
   <svg class="svg2 h-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
     <defs>
       <linearGradient id="myGradient" gradientTransform="rotate(90)">
-        <stop offset="5%" stop-color="#880808" />
-        <stop offset="95%" stop-color="red" />
+        <stop offset="5%" stop-color="#3D0C01" />
+        <stop offset="95%" stop-color="#7C0A01" />
       </linearGradient>
       <linearGradient id="myGradient2" gradientTransform="rotate(90)">
-        <stop offset="5%" stop-color="#FFA500" />
-        <stop offset="95%" stop-color="#EEBC1D" />
+        <stop offset="5%" stop-color="#CC9901" />
+        <stop offset="95%" stop-color="#DAA520" />
       </linearGradient>
     </defs>
     <g>
@@ -671,7 +662,7 @@
     </path>
   </svg>
 </header>
-<div class="w-100 min-h-full" style="background-color:#EEBC1D;">
+<div class="w-100 min-h-full" style="background-color:#DAA520;">
   <h2 class="font-jumbo text-center font-title font-weight-bold" style="width:100%;">
     Services
   </h2>
@@ -684,7 +675,7 @@
       </ol>
       <div class="carousel-inner shadow" style="height:100%;">
         <div class="carousel-item h-100 border shadow rounded active"
-          style="background: linear-gradient(#880808, red);">
+          style="background: linear-gradient(#3D0C01, #7C0A01);">
           <div class="container d-block w-100  text-center cwhite" alt="First slide">
             <h1>Service 1</h1>
             <h2 class="text-base mobile-text-big">
@@ -703,7 +694,7 @@
         </h2>
           </div>
         </div>
-        <div class="carousel-item h-100 border shadow rounded" style="background: linear-gradient(#880808, red);">
+        <div class="carousel-item h-100 border shadow rounded" style="background: linear-gradient(#3D0C01, #7C0A01);">
           <div class="container d-block w-100 text-center cwhite" alt="Third slide">
             <h1>Service 3</h1>
             <h2 class="text-base mobile-text-big">
@@ -724,12 +715,12 @@
     </div>
   </div>
 </div>
-<section class="pb-3" id="pricing" style="background: linear-gradient(#880808, red); width:100%; height:100%;">
+<section class="pb-3" id="pricing" style="background:linear-gradient(to bottom, #3D0C01 5%, #7C0A01 50% 100% ); width:100%; height:100%;">
   <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
     <defs>
       <linearGradient id="picGradient" gradientTransform="rotate(90)">
-        <stop offset="5%" stop-color="#EEBC1D" />
-        <stop offset="95%" stop-color="#FFA500" />
+        <stop offset="5%" stop-color="#DAA520" />
+        <stop offset="95%" stop-color="#CC9901" />
       </linearGradient>
     </defs>
 
@@ -765,8 +756,8 @@
   <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
     <defs>
         <linearGradient id="picGradient4" gradientTransform="rotate(90)">
-          <stop offset="5%" stop-color="red" />
-          <stop offset="95%" stop-color="#880808" />
+          <stop offset="5%" stop-color="#7C0A01" />
+          <stop offset="95%" stop-color="#3D0C01" />
         </linearGradient>
     </defs>
     <path fill="url('#picGradient4')" fill-opacity="1"
