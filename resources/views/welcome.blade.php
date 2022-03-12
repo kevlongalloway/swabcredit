@@ -588,7 +588,7 @@
           <a class="nav-link" href="{{ route('login') }}">Login</a>
         </li>
         <li class="nav-item mx-2 active">
-          <a class="nav-link  btn-warning btn" href="{{ route('register') }}">Try Now</a>
+          <a class="nav-link  btn-warning btn" href="{{ route('products') }}">Try Now</a>
         </li>
         @endauth
 
