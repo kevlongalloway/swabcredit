@@ -22,7 +22,10 @@ class PaymentController extends Controller
         
         //$user->checkout($stripe_name);
         //$user->newSubscription($stripe_name, $stripe_id)->create($paymentMethod);
-        $request->session()->flush();
+        $servicePath = $request->session()->get('service_path');
+
+        if ($servicePath == 'tax-preparation') $user->uploadRequired();
+        $request->session()->forget('service_path');
         return redirect()->route('success', ['type' => 'checkout']);
     }
 }

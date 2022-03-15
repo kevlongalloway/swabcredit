@@ -20,6 +20,12 @@ class ServicesController extends Controller
     public function index(Request $request, $servicePath)
     {
         $service = Service::where('path',$servicePath)->first();
+
+        $request->session()->put('service_path', $servicePath);
+        
+        if(!auth()->check()){  
+            return redirect()->route('register');
+        }
         
         if(!$service->is_subscription) {
             return view('guest.payment', [

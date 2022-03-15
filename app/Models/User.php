@@ -88,4 +88,37 @@ class User extends Authenticatable
     {
         return $this->hasMany(Subscription::class);
     }
+
+    /**
+     * Check if user needs to upload files.
+     *
+     * @return Boolean
+     */
+    public function hasFiles()
+    {
+        $hasFiles = false;
+        if($this->id_front_filename == null)  $hasFiles = false;
+        if($this->id_back_filename == null) $hasFiles = false;
+        return $hasFiles;
+    }
+
+    /**
+     * Check if user needs to upload files.
+     *
+     * @return Boolean
+     */
+    public function uploadRequired()
+    {
+        $this->has_files = 0;
+    }
+
+    /**
+     * Check if user needs to upload files.
+     *
+     * @return Boolean
+     */
+    public function uploadFinished()
+    {
+        $this->has_files = 1;
+    }
 }

@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum','upload.required' ,'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
@@ -36,7 +36,7 @@ Route::get('/products', function () {
     return view('products');
 })->name('products');
 
-Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware(['auth.subscribe','service.exists']);
+Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware('service.exists');
 Route::post('/services/checkout', [ServicesController::class, 'store'])->name('to.checkout');
 Route::post('/checkout', [PaymentController::class, 'store'])->name('checkout');
 

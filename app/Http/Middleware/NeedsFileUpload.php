@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class SubscriptionAuthentication
+class NeedsFileUpload
 {
     /**
      * Handle an incoming request.
@@ -17,10 +16,8 @@ class SubscriptionAuthentication
      */
     public function handle(Request $request, Closure $next)
     {
-        $servicePath = $request->route()->parameters()['servicePath'];
-        if(!Auth::check()){  
-            $request->session()->put('service_path', $servicePath);
-            return redirect()->route('register');
+        if(!auth()->user()->hasFiles()) {
+            return redirect()->route('upload.index');
         }
         return $next($request);
     }
