@@ -610,7 +610,7 @@
           Services </p>
       </div>
       <div class="text-center mt-5 basis-1/3">
-        <a href="{{ route('register') }}" class="btn btn-warning  m-2">Get a Quote<i
+        <a href="{{ route('products') }}" class="btn btn-warning  m-2">Get a Quote<i
             class="fa fa-chevron-right ml-3"></i></a>
       </div>
     </div>

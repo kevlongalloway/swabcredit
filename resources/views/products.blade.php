@@ -607,12 +607,12 @@
     	<div class="container">
     		<div class="row shadow" style="min-height:400px;">
     			<div class="col-md-8 mx-auto text-center align-middle shadow-lg" style="background:url('{{ url('../images/splash1.jpg') }}'); background-size:cover;">
-    				<h1 class="my-3 font-title font-weight-bold mobile-text-title cwhite">Do Service 1 Now!</h1>
+    				<h1 class="my-3 font-title font-weight-bold mobile-text-title cwhite">Tax Preparation</h1>
     				<p class="paragraph font-title p-3 mobile-text-bigger cwhite">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore amet facilis consectetur tempore, perspiciatis quisquam quibusdam nesciunt minima autem nihil ad atque dicta? Consectetur quae voluptates, reprehenderit tenetur minus iure!</p>
 
     			</div>
           <div class="col-md-4 mx-auto text-center d-flex justify-content-center align-center" style="background:#3D0C01;">
-          <a class="my-4 btn btn-warning d-flex mobile-text-big">Get Started Today</a>
+          <a class="my-4 btn btn-warning d-flex mobile-text-big" href="{{ url('services/tax-preparation') }}">Get Started Today</a>
     		</div>
     	</div>
     </section>
