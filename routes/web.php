@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SuccessController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductsPageController;
 use App\Http\Controllers\Guest\ServicesController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,9 +33,7 @@ Route::middleware(['auth:sanctum','upload.required' ,'verified'])->get('/dashboa
 
 Route::get('/success', [SuccessController::class, 'index'])->name('customer.success');
 
-Route::get('/products', function () {
-    return view('products');
-})->name('products');
+Route::get('/products', [ProductsPageController::class, 'index'])->name('products');
 
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware('service.exists');
 Route::post('/services/checkout', [ServicesController::class, 'store'])->name('to.checkout');

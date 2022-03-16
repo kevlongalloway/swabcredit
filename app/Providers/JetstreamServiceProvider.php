@@ -5,6 +5,16 @@ namespace App\Providers;
 use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Blade;
+use App\View\Components\HomeLayout;
+use App\View\Components\ContactInfo;
+use App\View\Components\Contact;
+use App\View\Components\Services;
+use App\View\Components\Info;
+use App\View\Components\LandingHeader;
+use App\View\Components\LandingNavbar;
+use App\View\Components\Footer;
+
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -28,6 +38,14 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
+        Blade::component('home-layout', HomeLayout::class);
+        Blade::component('contact-info', ContactInfo::class);
+        Blade::component('contact', Contact::class);
+        Blade::component('services', Services::class);
+        Blade::component('info', Info::class);
+        Blade::component('landing-header', LandingHeader::class);
+        Blade::component('landing-navbar', LandingNavbar::class);
+        Blade::component('footer', Footer::class);
     }
 
     /**
