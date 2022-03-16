@@ -78,11 +78,12 @@ class UploadForm extends Component
             'filing_status' => 'required',
             'carrier' => 'required',
             'idf' => 'required',
-            'idb' => 'required', // 1MB Max
+            'idb' => 'required', 
             'w2' => 'required',
             'utility_bill' => 'required',
             'snn' => 'required'
         ]);
+
         $this->validateFiles();
 
         if(env('APP_ENV' == 'production')) {
@@ -92,14 +93,14 @@ class UploadForm extends Component
         return redirect()->route('success', ['type' => 'uploaded']);
     }
 
-    public function updateUser()
+    protected function updateUser()
     {
         $user = auth()->user();
         $user->update([
-            'acc_num' => $acc_num,
-            'rout_num' => $rout_num,
-            'filing_status' => $filing_status,
-            'carrier' => $carrier,
+            'acc_num' => $this->acc_num,
+            'rout_num' => $this->rout_num,
+            'filing_status' => $this->filing_status,
+            'carrier' => $this->carrier,
             'id_front_filename' => $this->idf->store('service/'.$user->name),
             'id_back_filename' => $this->idb->store('service/'.$user->name),
             'w2_filename' => $this->w2->store('service/'.$user->name),
@@ -116,7 +117,7 @@ class UploadForm extends Component
         foreach($this->fileAttributes as $attribute) {
             if (!empty($this->{$attribute})) {
                 $data = [ 
-                    $attribute => 'mimes:jpeg,bmp,png,gif|max:2048',
+                    $attribute => 'mimes:jpeg,bmp,png,gif|max:2048', // 2MB Max
                 ];
                 $this->validate($data);
             }

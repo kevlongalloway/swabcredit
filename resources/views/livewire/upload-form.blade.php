@@ -1,5 +1,5 @@
 <div>
-    <form id="upForm" method="POST" action="{{ route('upload.store') }}" enctype="multipart/form-data">
+    <form id="upForm" method="POST" action="{{ route('upload.store') }}" enctype="multipart/form-data" wire:submit.prevent="save">
         @csrf
         <div style="text-align:center;margin-top:40px;">
             <span class="step"></span>
@@ -22,7 +22,7 @@
             <div id="ids">
                 <div class="mt-4">
                     <x-jet-label for="idf" value="{{ __('ID (Front)') }}" />
-                    <x-jet-input idf="idf" wire:model="idf" class="block mt-1 w-full" type="file" name="idf" value="old('idf')"   />
+                    <x-jet-input name="idf" wire:model="idf" class="block mt-1 w-full" type="file" name="idf" :value="old('idf')"   />
                 </div>
                 <div class="mt-4">
                     <x-jet-label for="idb" value="{{ __('ID (Back)') }}" />
@@ -57,27 +57,27 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="w2" value="{{ __('W2') }}" />
-                <x-jet-input id="w2" class="block mt-1 w-full" wire:model="w2" type="file" name="w2" :value="old('w2')"  />
+                <x-jet-input name="w2" class="block mt-1 w-full" wire:model="w2" type="file" name="w2" :value="old('w2')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="tax_g" value="{{ __('1099-G') }}" />
-                <x-jet-input id="tax_g" wire:model="tax_g" class="block mt-1 w-full" type="file" name="tax_g" :value="old('tax_g')"/>
+                <x-jet-input name="tax_g" wire:model="tax_g" class="block mt-1 w-full" type="file" name="tax_g" :value="old('tax_g')"/>
             </div>
             <div class="mt-4">
                 <x-jet-label for="utility_bill" value="{{ __('Utility Bill') }}" />
-                <x-jet-input id="utility_bill" wire:model="utility_bill" class="block mt-1 w-full" type="file" name="utility_bill" :value="old('utility_bill')"  />
+                <x-jet-input name="utility_bill" wire:model="utility_bill" class="block mt-1 w-full" type="file" name="utility_bill" :value="old('utility_bill')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="snn" value="{{ __('SSN Card (Stored Securely)') }}" />
-                <x-jet-input id="snn" wire:model="snn" class="block mt-1 w-full" type="file" name="snn" :value="old('snn')"  />
+                <x-jet-input name="snn" wire:model="snn" class="block mt-1 w-full" type="file" name="snn" :value="old('snn')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="tax_k" value="{{ __('1099-K (Cash App, Zelle, Venmo, or Paypal)') }}" />
-                <x-jet-input id="tax_k" wire:model="tax_k" class="block mt-1 w-full" type="file" name="tax_k" :value="old('tax_k')"  />
+                <x-jet-input name="tax_k" wire:model="tax_k" class="block mt-1 w-full" type="file" name="tax_k" :value="old('tax_k')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="etc" value="{{ __('Report Card, Progress Report, or Medical Record') }}" />
-                <x-jet-input id="etc" wire:model="etc" class="block mt-1 w-full" type="file" name="etc" :value="old('etc')"  />
+                <x-jet-input name="etc" wire:model="etc" class="block mt-1 w-full" type="file" name="etc" :value="old('etc')"  />
             </div>
         </div>
         @endif
@@ -85,11 +85,11 @@
         <div id="accroute">
             <div class="mt-4">
                 <x-jet-label for="acc_num" value="{{ __('Bank Account Number') }}" />
-                <x-jet-input id="acc_num" wire:model="acc_num" class="block mt-1 w-full" type="text" name="acc_num" :value="old('acc_num')"/>
+                <x-jet-input name="acc_num" wire:model="acc_num" class="block mt-1 w-full" type="text" name="acc_num" :value="old('acc_num')"/>
             </div>
             <div class="mt-4">
                 <x-jet-label for="rout_num" value="{{ __('Bank Routing Number') }}" />
-                <x-jet-input id="rout_num" wire:model="rout_num" class="block mt-1 w-full" type="text" name="rout_num" :value="old('rout_num')"/>
+                <x-jet-input name="rout_num" wire:model="rout_num" class="block mt-1 w-full" type="text" name="rout_num" :value="old('rout_num')"/>
             </div>
         </div>
         @endif
