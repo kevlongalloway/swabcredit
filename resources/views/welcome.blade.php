@@ -7,4 +7,5 @@
     <x-contact />
 </x-home-layout>
 
-{{-- resources/views/components --}}
+{{-- Layout - resources/views/layouts/home.blade.php --}}
+{{-- Components - resources/views/components --}}
