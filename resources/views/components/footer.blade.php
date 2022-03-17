@@ -12,10 +12,10 @@
             </div>
             <div class="col-12 col-lg-6 py-2 text-center">
                 <ul class="p-0 font-title mobile-text">
-                    <li class="inline"><a href="#" class="uppercase m-2 inline">About</a></li>
-                    <li class="inline"><a href="#" class="uppercase m-2 inline">Contact</a></li>
-                    <li class="inline"><a href="#" class="uppercase m-2 inline">Support</a></li>
-                    <li class="inline"><a href="{{ route('terms.show') }}" class="uppercase m-2 inline">Terms of Service</a></li>
+                    <li class="inline"><a href="#" class="uppercase m-2 inline">{{ __('About') }}</a></li>
+                    <li class="inline"><a href="#" class="uppercase m-2 inline">{{ __('Contact') }}</a></li>
+                    <li class="inline"><a href="#" class="uppercase m-2 inline">{{ __('Support') }}</a></li>
+                    <li class="inline"><a href="{{ route('terms.show') }}" class="uppercase m-2 inline">{{ __('Terms of Service') }}</a></li>
                 </ul>
             </div>
             <div class="col-12 col-lg-3 my-1 text-center">

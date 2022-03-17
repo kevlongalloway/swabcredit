@@ -14,7 +14,7 @@
         </svg>
         <div class="container d-flex flex-column  h-75 p-20">
             <div class="align-self-start">
-                <h1 class="w-100 cwhite font-jumbo text-center font-title font-weight-bold">Why Swab?</h1>
+                <h1 class="w-100 cwhite font-jumbo text-center font-title font-weight-bold">{{ __('Why Swab?') }}</h1>
                 <h2 class=" py-5 w-100 text-center text-base cwhite ">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel natus aliquid repudiandae dolorum, obcaecati iste
                     aliquam. Non nam, rem id architecto commodi harum reiciendis, qui repellendus optio, ipsa ab alias.

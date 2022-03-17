@@ -13,7 +13,7 @@
         </svg>
         <div class="container h-50 d-flex flex-column">
             <h2 class="font-jumbo text-center font-title font-weight-bold cwhite align-self-start" style="width:100%;">
-                Contact Us
+                {{ __('Contact Us') }}
             </h2>
             <div class="show mobile-text contact-table" >
                 <div class="d-flex flex-column">

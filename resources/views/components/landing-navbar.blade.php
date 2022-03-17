@@ -25,32 +25,32 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
+                        <a class="nav-link" href="#pricing">{{ __('Pricing') }}</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active mx-2">
-                        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">{{ __('About') }}<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">{{ __('Contact') }}</a>
                     </li>
                 @auth
                     @isAdmin
                     <li class="nav-item mx-2 active">
-                        <a class="nav-link  btn-warning btn" href="{{ route('register') }}">Admin Dashboard</a>
+                        <a class="nav-link  btn-warning btn" href="{{ route('register') }}">{{ __('Admin Dashboard') }}</a>
                     </li>
                     @endisAdmin
                     <li class="nav-item mx-2 active">
-                        <a class="nav-link  btn-warning btn" href="{{ url('/dashboard') }}">Dashboard</a>
+                        <a class="nav-link  btn-warning btn" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
                     </li>
 
                 @else
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     <li class="nav-item mx-2 active">
-                        <a class="nav-link  btn-warning btn" href="{{ route('products') }}">Try Now</a>
+                        <a class="nav-link  btn-warning btn" href="{{ route('products') }}">{{ __('Try Now') }}</a>
                     </li>
                 @endauth
                 </ul>

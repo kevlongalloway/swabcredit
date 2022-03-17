@@ -10,7 +10,7 @@
                 </span>
               </h2>
 
-              <p class="paragraph font-title cwhite text-center col-12 col-sm-6 mx-auto " style="font-size: 1.5rem;">Tax Paper Services </p>
+              <p class="paragraph font-title cwhite text-center col-12 col-sm-8 mx-auto " style="font-size: 1.5rem;">{{ __('landing.subtitle') }}</p>
             </div>
             <div class="text-center mt-5 basis-1/3">
               <a href="{{ route('products') }}" class="btn btn-warning  m-2">Get a Quote<i class="fa fa-chevron-right ml-3"></i></a>

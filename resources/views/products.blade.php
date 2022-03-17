@@ -7,12 +7,12 @@
     	   <div class="container">
     		  <div class="row shadow" style="min-height:400px;">
                     <div class="col-md-8 mx-auto text-center align-middle shadow-lg" style="background:url('{{ url('../images/splash1.jpg') }}'); background-size:cover;">
-    			     	<h1 class="my-3 font-title font-weight-bold mobile-text-title cwhite">Tax Preparation</h1>
-    				    <p class="paragraph font-title p-3 mobile-text-bigger cwhite">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore amet facilis consectetur tempore, perspiciatis quisquam quibusdam nesciunt minima autem nihil ad atque dicta? Consectetur quae voluptates, reprehenderit tenetur minus iure!</p>
+    			     	<h1 class="my-3 font-title font-weight-bold mobile-text-title cwhite">{{ __('products.tax-preparation.title') }}</h1>
+    				    <p class="paragraph font-title p-3 mobile-text-bigger cwhite">{{ __('products.tax-preparation.description2') }}</p>
 
                     </div>
                 <div class="col-md-4 mx-auto text-center d-flex justify-content-center align-center" style="background:#3D0C01;">
-                    <a class="my-4 btn btn-warning d-flex mobile-text-big" href="{{ url('services/tax-preparation') }}">Get Started Today</a>
+                    <a class="my-4 btn btn-warning d-flex mobile-text-big" href="{{ url('services/tax-preparation') }}">{{ __('Get Started Today') }}</a>
                 </div>
     	   </div>
         </section>
@@ -28,7 +28,7 @@
                         <div class="col-12 col-md-4">
                             <div class="content-feature text-center  py-3 px-2 my-3 border-light rounded shadow" style="background:url('{{ url('../images/taxprep.jpg') }}'); background-size:cover;">
                                 <i class="fa fa-code title-icon my-3"></i>
-                                <h4 class="title">Tax Prep</h4>
+                                <h4 class="title">{{ __('Tax Prep') }}</h4>
                                 <p class="py-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, hic illum. Molestias corporis quo esse optio ducimus repellendus ullam aspernatur laboriosam architecto debitis? Illum deserunt ipsa laudantium sit, nostrum sint.</p>
                                 <a href="#" class="uppercase p-2 csuccess bolder">Learn More</a>
                             </div>
@@ -39,7 +39,7 @@
                                 <div class="overlay op-4">
                                 </div>
                                 <i class="fa fa-cubes title-icon my-3"></i>
-                                <h4 class="title">Accounting</h4>
+                                <h4 class="title">{{ __('Accounting') }}</h4>
                                 <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quasi tempora voluptates fugiat ad ducimus quibusdam corporis culpa quam, modi reiciendis id eveniet, harum aperiam laboriosam tenetur nam quas? Deserunt?</p>
                                 <a href="#" class="uppercase p-2 csuccess bolder">Learn More</a>
                             </div>
@@ -47,7 +47,7 @@
                         <div class="col-12 col-md-4">
                             <div class="content-feature text-center py-3 px-2 my-3 border-light rounded shadow" style="background: linear-gradient(to right, #414345, #232526);">
                                 <i class="fa fa-money title-icon my-3"></i>
-                                <h4 class="title">Notary</h4>
+                                <h4 class="title">{{ __('Notary') }}</h4>
                                 <p class="py-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero perferendis aut enim quidem, illo in, praesentium dolorem libero esse eveniet, odio ducimus fugit inventore dolorum magnam pariatur sequi. Eius, corrupti!</p>
                                 <a href="#" class="uppercase p-2 csuccess bolder">Learn More</a>
                             </div>
