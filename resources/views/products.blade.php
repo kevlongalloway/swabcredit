@@ -3,7 +3,7 @@
 
     <div class="w-100">
     <!-- Component Call To Action 1 Start -->
-        <section class="py-5 mt-5" style="background:#DAA520; margin-top:4rem !important; min-height:400px;">
+        <section class="py-5 mt-5" style="background:#F7E976; margin-top:4rem !important; min-height:400px;">
     	   <div class="container">
     		  <div class="row shadow" style="min-height:400px;">
                     <div class="col-md-8 mx-auto text-center align-middle shadow-lg" style="background:url('{{ url('../images/splash1.jpg') }}'); background-size:cover;">
@@ -20,7 +20,7 @@
     <!-- Component Call To Action 1 End -->
 
     <!-- Component List Services -->
-    <div style="background:linear-gradient(0deg, #7C0A01, #DAA520);">
+    <div style="background:linear-gradient(180deg, #F7E976, #C23B21);">
         <div class="container">
             <section class="feature-style-7 p-relative font-title mx-2" style="padding:1.5rem; border-radius:10px;">
                 <div class="container">
@@ -35,9 +35,7 @@
 
                         </div>
                         <div class="col-12 col-md-4">
-                            <div class="content-feature text-center py-3 px-2 my-3 border-light rounded shadow" style="background: linear-gradient(to right, #414345, #232526);">
-                                <div class="overlay op-4">
-                                </div>
+                            <div class="content-feature text-center py-3 px-2 my-3 border-light rounded shadow" style="background:url('{{ url('../images/taxprep.jpg') }}'); background-size:cover;">
                                 <i class="fa fa-cubes title-icon my-3"></i>
                                 <h4 class="title">{{ __('Accounting') }}</h4>
                                 <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quasi tempora voluptates fugiat ad ducimus quibusdam corporis culpa quam, modi reiciendis id eveniet, harum aperiam laboriosam tenetur nam quas? Deserunt?</p>
@@ -45,7 +43,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-4">
-                            <div class="content-feature text-center py-3 px-2 my-3 border-light rounded shadow" style="background: linear-gradient(to right, #414345, #232526);">
+                            <div class="content-feature text-center py-3 px-2 my-3 border-light rounded shadow" style="background:url('{{ url('../images/taxprep.jpg') }}'); background-size:cover;">
                                 <i class="fa fa-money title-icon my-3"></i>
                                 <h4 class="title">{{ __('Notary') }}</h4>
                                 <p class="py-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero perferendis aut enim quidem, illo in, praesentium dolorem libero esse eveniet, odio ducimus fugit inventore dolorum magnam pariatur sequi. Eius, corrupti!</p>
@@ -66,8 +64,8 @@
                 <stop offset="95%" stop-color="#232526" />
             </linearGradient>
             <linearGradient id="rcurve" gradientTransform="rotate(90)">
-                <stop offset="5%" stop-color="#7C0A01" />
-                <stop offset="95%" stop-color="#3D0C01" />
+                <stop offset="5%" stop-color="#C23B21" />
+                <stop offset="95%" stop-color="#7C0A01" />
             </linearGradient>
         </defs> 
         <path fill="url('#rcurve')" fill-opacity="1" d="M0,160L120,176C240,192,480,224,720,218.7C960,213,1200,171,1320,149.3L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>

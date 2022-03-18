@@ -1,5 +1,5 @@
 <div>
-    <footer class="footer-style-5 p-5 bg-hue-dark cwhite">
+    <footer class="footer-style-5 p-5 bg-hue-light cgray">
         <div class="row">
             <div class="col-12 col-lg-3 my-1 d-flex flex-column justify-content-center align-items-center">
                 <span class="font-title h5"

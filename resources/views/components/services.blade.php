@@ -1,5 +1,5 @@
 <div>
-    <div class="w-100 min-h-full" style="background-color:#DAA520;">
+    <div class="w-100 min-h-full" style="background-color:#FFC32B;">
         <h2 class="font-jumbo text-center font-title font-weight-bold" style="width:100%;">
             {{ __('Services') }}
         </h2>

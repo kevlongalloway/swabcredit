@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-r from-blue-600 to-indigo-900">
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 " style="background:linear-gradient(135deg,#F7E976, #FFC32B)">
     <div>
         {{ $logo }}
     </div>

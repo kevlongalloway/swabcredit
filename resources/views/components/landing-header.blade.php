@@ -1,16 +1,16 @@
 <div>
-    <header class="bg-hue-dark" style="width: 100%; height: 100%; margin-top: 0;">
+    <header class="bg-hue-light" style="width: 100%; height: 100%; margin-top: 0;">
         <div class="container  p-6">
           <div class="content p-relative z-1 mt-5 splash-content" >
             <div class="basis-1/2" style="flex:50%;">
-              <h2 class="font-title p-3 text-center my-1 cwhite font-jumbo antialiased">
+              <h2 class="font-title p-3 text-center my-1 cblack font-jumbo antialiased">
                 <span>
                   <img class="splashcon" src="{{ url('../images/logo.png') }}" style="position:relative; top: -.5rem;">
                   <b class="font-weight-bold">wab</b>Credit & Trust
                 </span>
               </h2>
 
-              <p class="paragraph font-title cwhite text-center col-12 col-sm-8 mx-auto " style="font-size: 1.5rem;">{{ __('landing.subtitle') }}</p>
+              <p class="paragraph font-title cgrey text-center col-12 col-sm-8 mx-auto " style="font-size: 1.5rem;">{{ __('landing.subtitle') }}</p>
             </div>
             <div class="text-center mt-5 basis-1/3">
               <a href="{{ route('products') }}" class="btn btn-warning  m-2">Get a Quote<i class="fa fa-chevron-right ml-3"></i></a>
@@ -20,12 +20,12 @@
         <svg class="svg2 h-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
           <defs>
             <linearGradient id="myGradient" gradientTransform="rotate(90)">
-              <stop offset="5%" stop-color="#3D0C01" />
+              <stop offset="5%" stop-color="#C23B21" />
               <stop offset="95%" stop-color="#7C0A01" />
             </linearGradient>
             <linearGradient id="myGradient2" gradientTransform="rotate(90)">
-              <stop offset="5%" stop-color="#CC9901" />
-              <stop offset="95%" stop-color="#DAA520" />
+              <stop offset="5%" stop-color="#F7E976" />
+              <stop offset="95%" stop-color="#FFC32B" />
             </linearGradient>
           </defs>
           <g>

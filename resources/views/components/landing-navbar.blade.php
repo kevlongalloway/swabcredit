@@ -1,5 +1,5 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-hue-dark cwhite navbar-style-4 font-title py-2 sm:py-4 fixed-top">
+    <nav class="navbar navbar-expand-lg bg-hue-light cgray navbar-style-4 font-title py-2 sm:py-4 fixed-top">
         <div class="container">
             <a class="navbar-brand-custom" href="#">
                 <img src="{{ url('../images/logo.png') }}" class="navcon mr-2"
