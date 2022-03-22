@@ -36,7 +36,7 @@ class ServicesSeeder extends Seeder
                 'route' => 'bf.index',
                 'path' => 'business-formation',
                 'is_subscription' => false,
-                'price' => 25999
+                'price' => 15000
             ]
         ]);
         // DB::table('products')->insert([
