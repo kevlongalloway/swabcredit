@@ -1,5 +1,5 @@
 <div>
-    <header class="bg-hue-light" style="width: 100%; height: 100%; margin-top: 0;">
+    <header class="bg-custom-yellow" style="width: 100%; height: 100%; margin-top: 0;">
         <div class="container  p-6">
           <div class="content p-relative z-1 mt-5 splash-content" >
             <div class="basis-1/2" style="flex:50%;">
@@ -24,8 +24,8 @@
               <stop offset="95%" stop-color="#7C0A01" />
             </linearGradient>
             <linearGradient id="myGradient2" gradientTransform="rotate(90)">
-              <stop offset="5%" stop-color="#F7E976" />
-              <stop offset="95%" stop-color="#FFC32B" />
+              <stop offset="5%" stop-color="#F2F3F5"/>
+              <stop offset="95%" stop-color="#FFFFFF" />
             </linearGradient>
           </defs>
           <g>

@@ -383,9 +383,7 @@ video {
         color: rgba(107, 114, 128, var(--tw-text-opacity));
     }
 }
-</style > <style > body {
-    font-family: "Nunito", sans-serif;
-}
+
 ul {
     padding-inline-start: 0px !important;
 }
@@ -433,6 +431,9 @@ ul {
 .car-indicators-padding {
     padding: 3rem;
 }
+.card{
+  min-height:450px;
+}
 
 @media (max-width: 768px) {
     .no-show {
@@ -449,13 +450,16 @@ ul {
         flex-direction: column;
     }
     .mobile-text {
-        font-size: 12px;
+        font-size: 12px !important;
     }
     .mobile-text-big {
-        font-size: 13px;
+        font-size: 13px !important;
+    }
+    .mobile-text-lg {
+        font-size: 16px !important;
     }
     .mobile-text-sm {
-        font-size: 10px;
+        font-size: 10px !important;
     }
     .contact-table {
         color: white;
