@@ -11,6 +11,7 @@ class UploadForm extends Component
 
     public $currentStep;
     public $totalSteps = 3;
+    public $start;
     public $message = '';
 
     public $acc_num;
@@ -43,11 +44,17 @@ class UploadForm extends Component
     public function mount()
     {
         $this->currentStep = 1;
+        $this->start = false;
     }
 
     public function render()
     {
         return view('livewire.upload-form');
+    }
+
+    public function start()
+    {
+        $this->start = true;
     }
 
     public function next()
@@ -61,13 +68,12 @@ class UploadForm extends Component
 
     public function save()
     {
-
         $this->validateFiles();   
 
         if(env('APP_ENV' == 'production')) {
             $this->updateUser();
         }
-        $this->message = 'Successfully uploaded!';
+        $this->message = 'Successfully uploaded!!';
     }
 
     public function finish()

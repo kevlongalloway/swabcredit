@@ -107,6 +107,16 @@ class User extends Authenticatable
      *
      * @return Boolean
      */
+    public function needsFileUpload()
+    {
+        $this->has_files = 0;
+    }
+
+    /**
+     * DEPRACATED.
+     *
+     * @return Boolean
+     */
     public function uploadRequired()
     {
         $this->has_files = 0;

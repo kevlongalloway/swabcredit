@@ -19,13 +19,16 @@ class ServicesController extends Controller
      */
     public function index(Request $request, $servicePath)
     {
-        $service = Service::where('path',$servicePath)->first();
-
-        $request->session()->put('service_path', $servicePath);
-        
         if(!auth()->check()){  
             return redirect()->route('register');
         }
+        $request->session()->put('service_path', $servicePath);
+        if($servicePath == 'tax-preparation') {
+            auth()->user()->needsFileUpload();
+            return redirect()->route('dashboard');
+        }
+        
+        $service = Service::where('path',$servicePath)->first();
         
         if(!$service->is_subscription) {
             return view('guest.payment', [

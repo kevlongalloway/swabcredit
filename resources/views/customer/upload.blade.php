@@ -3,9 +3,7 @@
         <x-slot name="logo">
             <img src="{{ url('../images/logo.png') }}" style="width: 4rem;">
         </x-slot>
-        <h1 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Upload files and documents') }}
-        </h1>
+        
         
         <style>
             /*input.invalid {
