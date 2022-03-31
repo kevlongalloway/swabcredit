@@ -1,5 +1,5 @@
-<div>
-    <form class="p-5 cwhite" action="">
+<div class="bg-hue-light">
+    <form class="p-5 cgray" action="">
         <div class="contactrow">
             <div class="col-25">
                 <label for="fname">{{ __('First Name') }}</label>

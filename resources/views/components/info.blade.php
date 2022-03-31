@@ -1,14 +1,14 @@
 <div>
-    <section class="pb-3" id="pricing" style="background:linear-gradient(to bottom, #3D0C01 5%, #7C0A01 50% 100% ); width:100%; height:100%;">
+    <section class="pb-3" id="pricing" style="background:linear-gradient(to bottom, #7C0A01 5%, #C23B21 50% 100% ); width:100%; height:100%;">
         <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
             <defs>
                 <linearGradient id="picGradient" gradientTransform="rotate(90)">
-                    <stop offset="5%" stop-color="#DAA520" />
-                    <stop offset="95%" stop-color="#CC9901" />
+                    <stop offset="5%" stop-color="#FFC32B" />
+                    <stop offset="95%" stop-color="#F7E976" />
                 </linearGradient>
             </defs>
 
-            <path fill="url('#picGradient')" fill-opacity="1"
+            <path fill="#FFFFFF" fill-opacity="1"
                 d="M0,96L120,90.7C240,85,480,75,720,112C960,149,1200,235,1320,277.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
             </path>
         </svg>
