@@ -15,6 +15,8 @@ use App\View\Components\LandingHeader;
 use App\View\Components\LandingNavbar;
 use App\View\Components\Footer;
 use App\View\Components\AdminCustomers;
+use App\View\Components\Timeline;
+use App\View\Components\About;
 
 
 class JetstreamServiceProvider extends ServiceProvider
@@ -48,6 +50,8 @@ class JetstreamServiceProvider extends ServiceProvider
         Blade::component('landing-navbar', LandingNavbar::class);
         Blade::component('footer', Footer::class);
         Blade::component('admin-customers', AdminCustomers::class);
+        Blade::component('timeline', Timeline::class);
+        Blade::component('about', About::class);
     }
 
     /**

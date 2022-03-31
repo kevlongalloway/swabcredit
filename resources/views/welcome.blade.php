@@ -2,6 +2,8 @@
     <x-landing-navbar :services="$services"/>
     <x-landing-header />
     <x-services />
+    <x-about />
+    <x-timeline />
     <x-info />
     <x-contact-info />
     <x-contact />

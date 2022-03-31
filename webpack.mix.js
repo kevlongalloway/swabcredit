@@ -13,6 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
 	.postCss('resources/css/underexpress.css', 'public/css')
+    .postCss('resources/css/landing/styles.css', 'public/css/landing')
+    .postCss('resources/css/components/timeline.css', 'public/css/components')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
