@@ -40,7 +40,7 @@
                     <li class="nav-item mx-2 active">
                         <a class="nav-link  btn-warning btn" href="{{ route('register') }}">{{ __('Admin Dashboard') }}</a>
                     </li>
-                    @endAdmin
+                    @endadmin
                     <li class="nav-item mx-2 active">
                         <a class="nav-link  btn-warning btn" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
                     </li>
