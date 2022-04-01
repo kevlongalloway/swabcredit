@@ -13,7 +13,7 @@ class ServicesSeeder extends Seeder
      * @return void
      */
     public function run()
-    // {
+    {
     //     DB::table('services')->insert([
     //         [
     //             'name' =>'Credit Restoration',
