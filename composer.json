@@ -4,6 +4,14 @@
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevlon Galloway",
+            "email": "kevlongalloway1999m@gmail.com",
+            "homepage": "",
+            "role": "Full Stack Developer"
+        },
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
