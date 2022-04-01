@@ -6,16 +6,16 @@ use Illuminate\View\Component;
 
 class AdminCustomers extends Component
 {
-    public $customers;
+    public $users;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($customers)
+    public function __construct($users)
     {
-        $this->customers = $customers;
+        $this->users = $users;
     }
 
     /**
@@ -25,6 +25,6 @@ class AdminCustomers extends Component
      */
     public function render()
     {
-        return view('components.admin-customers');
+        return view('components.admin.customers');
     }
 }

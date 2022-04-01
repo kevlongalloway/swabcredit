@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class NeedsFileUpload
+class AuthorizeAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class NeedsFileUpload
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user()->hasFiles() && !auth()->user()->isAdmin()) {
-            return redirect()->route('upload.index');
+        if (!auth()->user()->isAdmin()) {
+            abort(404);
         }
         return $next($request);
     }

@@ -36,11 +36,11 @@
                         <a class="nav-link" href="#">{{ __('Contact') }}</a>
                     </li>
                 @auth
-                    @isAdmin
+                    @admin
                     <li class="nav-item mx-2 active">
                         <a class="nav-link  btn-warning btn" href="{{ route('register') }}">{{ __('Admin Dashboard') }}</a>
                     </li>
-                    @endisAdmin
+                    @endAdmin
                     <li class="nav-item mx-2 active">
                         <a class="nav-link  btn-warning btn" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
                     </li>

@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'service.exists' => \App\Http\Middleware\ServiceExists::class,
         'upload.required' => \App\Http\Middleware\NeedsFileUpload::class,
+        'admin' => \App\Http\Middleware\AuthorizeAdmin::class,
     ];
 }

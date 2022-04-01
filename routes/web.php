@@ -9,6 +9,7 @@ use App\Http\Controllers\SuccessController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductsPageController;
 use App\Http\Controllers\Guest\ServicesController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,6 +28,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index']);
 
 Route::middleware(['auth:sanctum','upload.required' ,'verified'])->get('/dashboard', function () {
+    if(auth()->user()->isAdmin()) {
+        return view('dashboard', [
+            'users' => \App\Models\User::all()
+        ]);
+    }
     return view('dashboard');
 })->name('dashboard');
 
@@ -44,6 +50,9 @@ Route::get('/upload-documents', [UploadController::class, 'index'])->name('uploa
 Route::post('/upload-documents', [UploadController::class, 'store'])->name('upload.store');
 
 Route::get('/success/{type}', [SuccessController::class, 'index'])->name('success');
+
+
+Route::get('/users/{user}', [AdminController::class, 'customer'])->name('admin.customer');
 
 
 require_once __DIR__ . '/jetstream.php';
