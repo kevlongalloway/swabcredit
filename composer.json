@@ -10,7 +10,7 @@
             "email": "kevlongalloway1999m@gmail.com",
             "homepage": "",
             "role": "Full Stack Developer"
-        },
+        }
     ],
     "require": {
         "php": "^7.3|^8.0",
