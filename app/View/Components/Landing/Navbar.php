@@ -1,19 +1,21 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Landing;
 
 use Illuminate\View\Component;
+use App\Models\Service;
 
-class Services extends Component
+class Navbar extends Component
 {
+    public $services;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($services)
     {
-         //
+        $this->services = $services;
     }
 
     /**
@@ -23,6 +25,6 @@ class Services extends Component
      */
     public function render()
     {
-        return view('components.services');
+        return view('components.landing.navbar');
     }
 }

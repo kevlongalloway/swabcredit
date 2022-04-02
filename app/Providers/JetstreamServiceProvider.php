@@ -7,16 +7,16 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Blade;
 use App\View\Components\HomeLayout;
-use App\View\Components\ContactInfo;
-use App\View\Components\Contact;
-use App\View\Components\Services;
-use App\View\Components\Info;
-use App\View\Components\LandingHeader;
-use App\View\Components\LandingNavbar;
-use App\View\Components\Footer;
 use App\View\Components\AdminCustomers;
-use App\View\Components\Timeline;
-use App\View\Components\About;
+use App\View\Components\Landing\ContactInfo;
+use App\View\Components\Landing\Contact;
+use App\View\Components\Landing\Services;
+use App\View\Components\Landing\Info;
+use App\View\Components\Landing\LandingHeader;
+use App\View\Components\Landing\Navbar;
+use App\View\Components\Landing\Footer;
+use App\View\Components\Landing\Timeline;
+use App\View\Components\Landing\About;
 
 
 class JetstreamServiceProvider extends ServiceProvider
@@ -47,7 +47,7 @@ class JetstreamServiceProvider extends ServiceProvider
         Blade::component('services', Services::class);
         Blade::component('info', Info::class);
         Blade::component('landing-header', LandingHeader::class);
-        Blade::component('landing-navbar', LandingNavbar::class);
+        Blade::component('navbar', Navbar::class);
         Blade::component('footer', Footer::class);
         Blade::component('admin-customers', AdminCustomers::class);
         Blade::component('timeline', Timeline::class);

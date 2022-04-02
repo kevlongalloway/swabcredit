@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Landing;
 
 use Illuminate\View\Component;
 
-class ContactInfo extends Component
+class Timeline extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class ContactInfo extends Component
      */
     public function render()
     {
-        return view('components.contact-info');
+        return view('components.landing.timeline');
     }
 }
