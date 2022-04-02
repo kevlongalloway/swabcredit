@@ -48,3 +48,5 @@ networks:
 volumes:
     sail-mysql:
         driver: local
+    sailminio:
+        driver: local

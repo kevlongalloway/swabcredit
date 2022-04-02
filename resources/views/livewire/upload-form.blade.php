@@ -1,5 +1,5 @@
 <div>
-    <form id="upForm" method="POST" action="{{ route('upload.store') }}" enctype="multipart/form-data" wire:submit.prevent="save">
+    <form id="upForm" wire:submit.prevent="submit">
         @csrf
         <div style="text-align:center;margin-top:40px;">
             <span class="step"></span>
@@ -28,7 +28,7 @@
             <div id="ids">
                 <div class="mt-4">
                     <x-jet-label for="idf" value="{{ __('ID (Front)') }}" />
-                    <x-jet-input name="idf" wire:model="idf" class="block mt-1 w-full" type="file" name="idf" :value="old('idf')"   />
+                    <input type="file" wire:model="idf">
                 </div>
                 <div class="mt-4">
                     <x-jet-label for="idb" value="{{ __('ID (Back)') }}" />
@@ -99,11 +99,9 @@
             </div>
         </div>
         @endif
-
-        </form>
         <div class="mt-4 flex justify-center">
             <div class="mt-8 mb-4">
-                    <x-jet-button class="ml-4" wire:click="save">
+                    <x-jet-button class="ml-4" type="submit" wire:click="save">
                         {{ __('Save') }}
                     </x-jet-button>
                 @if($currentStep == 2 || $currentStep == 3)
@@ -112,38 +110,23 @@
                     </x-jet-button>
                 @endif
                 @if($currentStep == 1 || $currentStep == 2)
-                    <x-jet-button class="ml-4" wire:click="next">
+                    <x-jet-button wire:click="next" class="ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                         {{ __('Next') }}
                     </x-jet-button>
                 @endif
                 @if($currentStep == 3)
-                    <x-jet-button class="ml-4" wire:click="finish">
+                    <x-jet-button class="ml-4" wire:click="finish" type="submit">
                         {{ __('Finish') }}
                     </x-jet-button>
                 @endif
             </div>
         </div>
         @endif
+        </form>
+        
+        
     
 </div>
 
-@push('scripts')
-<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-<script>
-    window.addEventListener('livewire:load', event => {
-        uploadUI();
-    }); 
-    window.addEventListener('livewire:update', event => {
-        uploadUI();
-    });    
 
-    function uploadUI () {
-        // Get a reference to the file input element
-        const inputElement = document.querySelectorAll('input[type="file"]');
-        // Create a FilePond instance
-        inputElement.forEach(function (inputE) {
-           const pond = FilePond.create(inputE)
-        });
-    }  
-</script>
-@endpush
+

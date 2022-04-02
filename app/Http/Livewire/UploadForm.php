@@ -4,10 +4,22 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\File;
 
 class UploadForm extends Component
 {
     use WithFileUploads;
+
+    protected $rules = [
+        'idf' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'idb' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'w2' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'tax_g' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'utility_bill' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'snn' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'tax_k' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048',
+        'etc' => 'nullable|mimes:jpeg,bmp,png,gif|max:2048'
+    ];
 
     /**
      * The current step on the upload component.
@@ -146,6 +158,22 @@ class UploadForm extends Component
         'etc' => 'Report Card, Progress Report, or Medical Record'
     ];
 
+        /**
+     * User input for file ID Front.
+     *
+     * @var array<string>
+     */
+    protected $attributeColumnName = [
+        'idf' => 'id_front_filename',
+        'idb' => 'id_back_filename',
+        'w2' => 'w2_filename',
+        'tax_g' => 'tax_g_filename',
+        'utility_bill' => 'utility_bill_filename',
+        'snn' => 'snn_filename',
+        'tax_k' => 'tax_k_filename',
+        'etc' => 'etc_filename'
+    ];
+
     /**
      * User input for file ID Front.
      *
@@ -184,7 +212,12 @@ class UploadForm extends Component
      */
     public function next()
     {
+        $this->validate();   
+
+        $this->updateUser();
+
         $this->currentStep++;
+        
     }
 
     /**
@@ -197,18 +230,21 @@ class UploadForm extends Component
         $this->currentStep--;
     }
 
+    public function save()
+    {
+        $this->message = 'Successfully Uploaded!';
+    }
+
     /**
      * User input for file ID Front.
      *
      * @var int
      */
-    public function save()
+    public function submit()
     {
-        $this->validateFiles();   
+        $this->validate();   
 
         $this->updateUser();
-        
-        $this->message = 'Successfully uploaded!!';
     }
 
     /**
@@ -231,8 +267,6 @@ class UploadForm extends Component
         ]);
 
         $this->validateFiles();
-
-        $this->updateUser();
         
         $this->message = 'Successfully uploaded!';
         return redirect()->route('success', ['type' => 'uploaded']);
@@ -250,16 +284,18 @@ class UploadForm extends Component
             'acc_num' => $this->acc_num,
             'rout_num' => $this->rout_num,
             'filing_status' => $this->filing_status,
-            'carrier' => $this->carrier,
-            'id_front_filename' => $this->idf->store('docs'),
-            'id_back_filename' => $this->idb->store('docs'),
-            'w2_filename' => $this->w2->store('docs'),
-            'tax_g_filename' => $this->tax_g->store('docs'),
-            'utility_bill_filename' => $this->utility_bill->store('docs'),
-            'snn_filename' => $this->snn->store('docs'),
-            'tax_k_filename' => $this->tax_k->store('docs'),
-            'etc_filename' => $this->etc->store('docs')
+            'carrier' => $this->carrier
         ]);
+
+
+        $data = [];
+
+        foreach($this->fileAttributes as $attribute) {
+            if ($this->{$attribute} != null) {
+                $user->{$this->attributeColumnName[$attribute]} = $this->{$attribute}->store('docs');
+            }
+        }
+        return $user->save();
     }
 
     /**
