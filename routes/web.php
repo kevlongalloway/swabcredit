@@ -63,9 +63,7 @@ Route::get('/affiliate/dashboard', [AffiliateController::class, 'dashboard'])->n
 
 Route::get('/admin/affiliates', [AdminController::class, 'affiliates'])->name('admin.affiliates');
 
-Route::get('test', function () {
-    return view('test');
-});
+
 
 
 require_once __DIR__ . '/jetstream.php';
