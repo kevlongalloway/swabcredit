@@ -37,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
             return Auth::check() ? Auth::user()->isAdmin() : false;
         });
 
+        Blade::if('affiliate', function () {
+            return Auth::check() ? Auth::user()->isAffiliate() : false;
+        });
+
         Cashier::calculateTaxes();
         Cashier::ignoreMigrations();
         Cashier::useSubscriptionModel(Subscription::class);

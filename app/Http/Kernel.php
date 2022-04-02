@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'service.exists' => \App\Http\Middleware\ServiceExists::class,
         'upload.required' => \App\Http\Middleware\NeedsFileUpload::class,
         'admin' => \App\Http\Middleware\AuthorizeAdmin::class,
+        'affiliate' => \App\Http\Middleware\AuthorizeAffiliate::class,
     ];
 }

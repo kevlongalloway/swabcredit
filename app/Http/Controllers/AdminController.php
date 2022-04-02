@@ -28,4 +28,9 @@ class AdminController extends Controller
             'user' => $user
         ]);
     }
+
+    public function affiliates()
+    {
+        return view('admin.affiliates');
+    }
 }

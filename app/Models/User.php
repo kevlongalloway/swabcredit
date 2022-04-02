@@ -70,6 +70,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Check if user is customer.
+     *
+     * @return Boolean
+     */
+    public function isCustomer()
+    {
+        return $this->is_customer;
+    }
+
+    /**
      * Check if user is admin.
      *
      * @return Boolean
@@ -77,6 +87,39 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin;
+    }
+
+    /**
+     * Check if user is affiliate.
+     *
+     * @return Boolean
+     */
+    public function isAffiliate()
+    {
+        return $this->is_affiliate;
+    }
+
+    /**
+     * Make user an affiliate.
+     *
+     */
+    public function makeAffiliate($affiliateCode)
+    {
+        $this->update([
+            'is_affiliate' => 1,
+            'affiliate_code' => $affiliateCode
+        ]);
+    }
+
+    /**
+     * Make user an affiliate.
+     *
+     */
+    public function makeCustomer()
+    {
+        $this->update([
+            'is_customer' => 1
+        ]);
     }
 
     /**
@@ -109,7 +152,9 @@ class User extends Authenticatable
      */
     public function needsFileUpload()
     {
-        $this->has_files = 0;
+        $this->update([
+            'has_files' => 0
+        ]);
     }
 
     /**
@@ -119,7 +164,9 @@ class User extends Authenticatable
      */
     public function uploadRequired()
     {
-        $this->has_files = 0;
+        $this->update([
+            'has_files' => 0
+        ]);
     }
 
     /**
@@ -129,6 +176,8 @@ class User extends Authenticatable
      */
     public function uploadFinished()
     {
-        $this->has_files = 1;
+        $this->update([
+            'has_files' => 1
+        ]);
     }
 }

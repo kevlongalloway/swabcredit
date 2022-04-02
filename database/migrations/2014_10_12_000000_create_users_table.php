@@ -36,6 +36,10 @@ return new class extends Migration
             $table->string('tax_k_filename')->nullable();
             $table->string('etc_filename')->nullable();
             $table->boolean('is_admin')->default(0);
+            $table->boolean('is_affiliate')->default(0);
+            $table->boolean('is_customer')->default(0);
+            $table->string('affiliate_code')->nullable();
+
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductsPageController;
 use App\Http\Controllers\Guest\ServicesController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AffiliateController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -53,6 +54,14 @@ Route::get('/success/{type}', [SuccessController::class, 'index'])->name('succes
 
 
 Route::get('/users/{user}', [AdminController::class, 'customer'])->name('admin.customer');
+
+
+Route::get('/affiliate/enroll', [AffiliateController::class, 'index'])->name('affiliate.index');
+Route::get('/affiliate/register', [AffiliateController::class, 'join'])->name('affiliate.join');
+
+Route::get('/affiliate/dashboard', [AffiliateController::class, 'dashboard'])->name('affiliate.dashboard')->middleware('affiliate');
+
+Route::get('/admin/affiliates', [AdminController::class, 'affiliates'])->name('admin.affiliates');
 
 
 require_once __DIR__ . '/jetstream.php';
