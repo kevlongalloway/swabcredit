@@ -3,9 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Service;
+use Nikolag\Square\Facades\Square;
+use Nikolag\Square\Models\Customer;
 
 class PaymentController extends Controller
 {
+    public function charge()
+    {
+        $customerArr =[
+            'first_name' => '',
+            'last_name' => '',
+            'email' => '',
+            'phone' => '',
+         ];
+
+         $customer = new Customer($customerArr);
+         $customer->save();
+
+         $transaction = Square::charge([
+
+        ]);
+    }
+
     public function store(Request $request)
     {
         $user = $request->user();

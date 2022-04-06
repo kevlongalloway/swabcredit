@@ -22,17 +22,20 @@ class ServicesController extends Controller
         if(!auth()->check()){  
             return redirect()->route('register');
         }
+
+        $user = auth()->user();
         $request->session()->put('service_path', $servicePath);
+        $service = Service::where('path',$servicePath)->first();
         if($servicePath == 'tax-preparation') {
-            auth()->user()->needsFileUpload();
+            $user->needsFileUpload();
+            $user->services()->attach($service->id);
             return redirect()->route('dashboard');
         }
         
-        $service = Service::where('path',$servicePath)->first();
         
         if(!$service->is_subscription) {
             return view('guest.payment', [
-                'intent' => auth()->user()->createSetupIntent(),
+                'intent' => $user->createSetupIntent(),
                 'price' => $service->price,
                 'service' => $service->name
             ]);  

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Cashier\Billable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Cashier\Subscription;
+use App\Models\Service;
+use Nikolag\Square\Traits\HasCustomers;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use Billable;
+    use HasCustomers;
 
     /**
      * The attributes that are mass assignable.
@@ -179,5 +180,10 @@ class User extends Authenticatable
         $this->update([
             'has_files' => 1
         ]);
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
     }
 }

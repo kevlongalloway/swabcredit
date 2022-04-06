@@ -287,9 +287,6 @@ class UploadForm extends Component
             'carrier' => $this->carrier
         ]);
 
-
-        $data = [];
-
         foreach($this->fileAttributes as $attribute) {
             if ($this->{$attribute} != null) {
                 $user->{$this->attributeColumnName[$attribute]} = $this->{$attribute}->store('docs');

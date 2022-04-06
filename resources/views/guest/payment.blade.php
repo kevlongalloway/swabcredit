@@ -50,11 +50,16 @@
                     <h2 class="relative text-base font-bold">Total: ${{ $price }}</h2>
                 </div>
                 <div class="py-3 px-1 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                    <div id="card-element"></div>
+
+                    <form id="payment-form">
+                        <div id="card-container"></div>
+                        <button id="card-button" type="button">Pay</button>
+                    </form>
+
                 </div>
 
                 <div class="mt-8 mb-4">
-                    <button id="card-button" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" data-secret="{{ $intent->client_secret }}">
+                    <button id="card-button" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                         Subscribe Now!
                     </button> 
                 </div>
@@ -65,48 +70,55 @@
     </x-jet-authentication-card>
 </x-guest-layout>
 
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-    const stripe = Stripe("{{ env('STRIPE_KEY') }}");
- 
-    const elements = stripe.elements();
-    const cardElement = elements.create('card');
- 
-    cardElement.mount('#card-element');
-</script>
+@push('scripts')
+<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+<script type="text/javascript">
 
-<script>
-    const cardHolderName = document.getElementById('card-holder-name');
-    const cardButton = document.getElementById('card-button');
-    const clientSecret = cardButton.dataset.secret; 
-    const paymentForm = document.getElementById('payment-form')
+    async function main() {
 
-    cardElement.on('change', function(event) {
-      var displayError = document.getElementById('card-errors');
-      if (event.error) {
-        displayError.textContent = event.error.message;
-      } else {
-        displayError.textContent = '';
-      }
-    });
+      const payments = Square.payments(APPLICATION_ID, LOCATION_ID);
 
-    cardButton.addEventListener('click', async (e) => {
-        const { setupIntent, error } = await stripe.confirmCardSetup(
-            clientSecret, {
-                payment_method: {
-                    card: cardElement,
-                    billing_details: { name: cardHolderName.value }
-                }
-            }
-        ).then(function (result) {
-            if (result.error) {
-                var errorElement = document.getElementById('post-errors');
-                errorElement.textContent = result.error.message;
-            } else {
-                const paymentMethodInput = document.getElementById('payment-method');
-                paymentMethodInput.value = result.setupIntent.payment_method;
-                paymentForm.submit();
-            }
-        }); 
-    });
-</script>
+      const card = await payments.card();
+
+      await card.attach('#card-container');
+
+
+
+      async function eventHandler(event) {
+
+        event.preventDefault();
+
+
+
+        try {
+
+          const result = await card.tokenize();
+
+          if (result.status === 'OK') {
+
+            console.log(`Payment token is ${result.token}`);
+
+          }
+
+        } catch (e) {
+
+          console.error(e);
+
+        }
+
+      };
+
+
+
+      const cardButton = document.getElementById('card-button');
+
+      cardButton.addEventListener('click', eventHandler);
+
+    }
+
+
+
+    main();
+
+  </script>
+  @endpush

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
 use App\Models\Plan;
+use App\Models\User;
 use App\Casts\CastsPrice;
 
 
@@ -62,5 +63,15 @@ class Service extends Model
     public function hasPlans()
     {
         return $this->plans()->exists();
+    }
+
+    /**
+     * Get the Users that belong to this Service.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
