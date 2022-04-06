@@ -4,17 +4,20 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use Livewire\WithPagination;
 
 class AdminCustomers extends Component
 {
-    public $users;
+    use WithPagination;
+
     public $query = '';
 
 
     public function render()
     {
         $searchTerm = '%' .$this->query . '%';
-        $this->users = User::where('name', 'like', $searchTerm)->get();
-        return view('livewire.admin-customers');
+        return view('livewire.admin-customers', [
+            'users' => User::where('name', 'like', $searchTerm)->paginate(10)
+        ]);
     }
 }
