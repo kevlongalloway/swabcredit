@@ -10,6 +10,13 @@
             "email": "kevlongalloway1999m@gmail.com",
             "homepage": "",
             "role": "Full Stack Developer"
+        },
+        {
+            "name": "Taylor Otwell",
+            "email": "fguinyard.it@gmail.com",
+            "homepage": "https://freddieguinyard-portfolio.azurewebsites.net/",
+            "role": "Front-end Developer"
+
         }
     ],
     "require": {

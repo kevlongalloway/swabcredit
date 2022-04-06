@@ -18,6 +18,9 @@ th, td {
 
 tr:nth-child(odd) {background-color: #f2f2f2;}
 </style>
+<form class="form-inline" method="get" action="{{ url('/dashboard/search') }}">
+  <input class="" class="form-control" name="query" placeholder="Search..." type="text">
+</form>
 
   <table class="table-auto">
     <thead>

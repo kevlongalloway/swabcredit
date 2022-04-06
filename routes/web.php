@@ -36,6 +36,8 @@ Route::middleware(['auth:sanctum','upload.required' ,'verified'])->get('/dashboa
     }
     return view('dashboard');
 })->name('dashboard');
+#route for admin to search users
+Route::get('/dashboard/search', [AdminController::class, 'search'])->name('dashboard.search');
 
 
 Route::get('/success', [SuccessController::class, 'index'])->name('customer.success');
@@ -54,6 +56,7 @@ Route::get('/success/{type}', [SuccessController::class, 'index'])->name('succes
 
 
 Route::get('/users/{user}', [AdminController::class, 'customer'])->name('admin.customer');
+
 
 
 Route::get('/affiliate/enroll', [AffiliateController::class, 'index'])->name('affiliate.index');
