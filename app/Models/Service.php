@@ -74,4 +74,19 @@ class Service extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function requiresUpload()
+    {
+        return $this->requires_upload;
+    }
+
+    public function requiresPayment()
+    {
+        return $this->requires_payment;
+    }
+
+    public function isSubscription()
+    {
+        return $this->is_subscription;
+    }
 }

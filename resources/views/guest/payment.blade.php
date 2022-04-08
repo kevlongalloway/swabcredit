@@ -43,6 +43,7 @@
             <hr>
 
             <input type="hidden" name="payment-method" id="payment-method">
+            <input type="hidden" name="service_id" id="payment-method" value="{{ $service_id }}">
 
             <div class="mt-4">
                 <div id="card-errors"></div>

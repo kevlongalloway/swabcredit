@@ -30,13 +30,17 @@ class ServicesSeeder extends Seeder
                 'path' => 'tax-preparation',
                 'is_subscription' => false,
                 'price' => 24999,
+                'requires_upload' => true,
+                'requires_payment' => false
             ],
             [
                 'name' =>'Business Formation',
                 'route' => 'bf.index',
                 'path' => 'business-formation',
                 'is_subscription' => false,
-                'price' => 15000
+                'price' => 15000,
+                'requires_upload' => false,
+                'requires_payment' => true
             ]
         ]);
         // DB::table('products')->insert([

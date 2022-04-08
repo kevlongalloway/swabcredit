@@ -20,28 +20,27 @@ class ServicesController extends Controller
     public function index(Request $request, $servicePath)
     {
         if(!auth()->check()){  
+            $request->session()->put('service_path', $servicePath);
             return redirect()->route('register');
         }
 
         $user = auth()->user();
-        $request->session()->put('service_path', $servicePath);
         $service = Service::where('path',$servicePath)->first();
-        if($servicePath == 'tax-preparation') {
+
+        $user->services()->attach($service->id);
+
+        if ($service->requiresPayment()) {
+            return redirect('/checkout/'. $service->id); 
+        }
+
+        if ($service->requiresUpload()) {
             $user->needsFileUpload();
-            $user->services()->attach($service->id);
             return redirect()->route('dashboard');
         }
         
-        
-        if(!$service->is_subscription) {
-            return view('guest.payment', [
-                'intent' => $user->createSetupIntent(),
-                'price' => $service->price,
-                'service' => $service->name
-            ]);  
+        if($service->isSubscription()) {
+            return view('guest.subscribe', ['service' => $service]); 
         }
-
-        return view('guest.subscribe', ['service' => $service]);
     }
 
     /**
@@ -55,7 +54,6 @@ class ServicesController extends Controller
         if ($request->has('plan') && $request->has('subscription')) {
             $plan = Plan::find($request->plan);
             $data = [
-                'intent' => auth()->user()->createSetupIntent(),
                 'price' => $plan->price,
                 'service' => $plan->product()->first()->service()->first()->name,
                 'product' => $plan->product()->first()->name,
@@ -65,14 +63,12 @@ class ServicesController extends Controller
             $plan = Plan::find($request->plan);
             if($plan->service()->exists()) {
                 $data = [
-                'intent' => auth()->user()->createSetupIntent(),
                 'price' => $plan->price,
                 'service' => $plan->service()->first()->name,
                 ];
             }
             if($plan->product()->exists()) {
                 $data = [
-                'intent' => auth()->user()->createSetupIntent(),
                 'price' => $plan->price,
                 'service' => $plan->product()->first()->name,
                 ];
@@ -81,7 +77,6 @@ class ServicesController extends Controller
         if($request->has('subscription') && !$request->has('plan')) {
             $product = Product::find($request->subscription);
             $data = [
-                'intent' => auth()->user()->createSetupIntent(),
                 'price' => $product->price,
                 'service' => $product->name,
                 ];

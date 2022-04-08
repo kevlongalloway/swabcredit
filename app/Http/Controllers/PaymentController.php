@@ -10,6 +10,15 @@ use Nikolag\Square\Models\Customer;
 
 class PaymentController extends Controller
 {
+    public function index(Service $service)
+    {
+        return view('guest.payment', [
+                'price' => $service->price,
+                'service' => $service->name,
+                'service_id' => $service->id
+            ]);  
+    }
+
     public function charge()
     {
         $customerArr =[
@@ -25,6 +34,18 @@ class PaymentController extends Controller
          $transaction = Square::charge([
 
         ]);
+
+        $user->update([
+            'line1'       => $request->line1,
+            'line2'       => $request->line2,
+            'city'        => $request->city,
+            'state'       => $request->state,
+            'postal_code' => $request->postal_code,
+        ]);
+
+
+        $request->session()->forget('service_path');
+
     }
 
     public function store(Request $request)

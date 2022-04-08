@@ -20,6 +20,9 @@ class CreateServicesTable extends Migration
             $table->string('path');
             $table->integer('price')->nullable();
             $table->boolean('is_subscription')->default(0);
+            $table->boolean('requires_upload')->default(0);
+            $table->boolean('requires_payment')->default(0);
+            $table->boolean('has_plans')->default(0);
             $table->timestamps();
         });
     }
