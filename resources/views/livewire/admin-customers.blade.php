@@ -7,6 +7,7 @@
     th{
       font-weight: bold;
       font-size: 1.2rem;
+      background-color: #f2f2f2;
     }
 
     th, td {
