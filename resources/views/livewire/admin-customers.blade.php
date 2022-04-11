@@ -23,18 +23,22 @@
             {{ __('Customers') }}
       </h2>
     <div class="px-4 py-4">
-      <x-jet-input class="" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query" />
+      <x-jet-input class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query" />
     </div>
       <table class="table-auto">
         <thead>
           <tr>
             <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr>
         </thead>
         <tbody>
           @foreach($users as $user)
           <tr>
             <td><a href="{{ url('/users/'.$user->id.'/') }}">{{ $user->name }}</a></td>
+            <td><a href="{{ url('/users/'.$user->id.'/') }}">{{ $user->email }}</a></td>
+            <td><a href="{{ url('/users/'.$user->id.'/') }}">{{ $user->phone }}</a></td>
           </tr>
           @endforeach
         </tbody>

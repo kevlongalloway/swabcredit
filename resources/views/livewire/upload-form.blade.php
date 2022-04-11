@@ -42,10 +42,10 @@
                 <x-jet-label for="filing_status" value="{{ __('Filing Status') }}" />
                 <select name="filing_status" wire:model="filing_status" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" >
                     <option disabled selected>Select</option>
-                    <option>Head of Household</option>
-                    <option>Single</option>
-                    <option>MFS</option>
-                    <option>MFJ</option>
+                    <option value="HOH">Head of Household</option>
+                    <option value="S">Single</option>
+                    <option value="MFS">MFS</option>
+                    <option value="MFJ">MFJ</option>
                 </select>
             </div>
 
@@ -53,11 +53,11 @@
                 <x-jet-label for="carrier" value="{{ __('Cell Phone Carrier') }}" />
                 <select name="carrier" wire:model="carrier" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" >
                     <option disabled selected>Select</option>
-                    <option>AT&T</option>
-                    <option>Sprint</option>
-                    <option>Verizon</option>
-                    <option>T-mobile</option>
-                    <option>Other</option>
+                    <option value="Att">AT&T</option>
+                    <option value="Sprint">Sprint</option>
+                    <option value="Verizon">Verizon</option>
+                    <option value="Tmobile">T-mobile</option>
+                    <option value="other">Other</option>
 
                 </select>
             </div>

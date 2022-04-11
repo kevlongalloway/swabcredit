@@ -155,7 +155,9 @@ class UploadForm extends Component
         'utility_bill' => 'Utility Bill',
         'snn' => 'SSN Card',
         'tax_k' => '1099-K',
-        'etc' => 'Report Card, Progress Report, or Medical Record'
+        'etc' => 'Report Card, Progress Report, or Medical Record',
+        'carrier' => 'Carrier',
+        'filing_status' => 'Filing Status'
     ];
 
         /**
@@ -183,6 +185,7 @@ class UploadForm extends Component
     {
         $this->currentStep = 1;
         $this->start = false;
+        $this->setPage();
     }
 
     /**
@@ -212,7 +215,9 @@ class UploadForm extends Component
      */
     public function next()
     {
-        $this->validate();   
+        $this->validate();  
+
+        $this->validateByPage();
 
         $this->updateUser();
 
@@ -245,6 +250,37 @@ class UploadForm extends Component
         $this->validate();   
 
         $this->updateUser();
+    }
+
+    public function validateByPage()
+    {
+        $user = auth()->user();
+        if ($this->currentStep == 1) {
+            if (!$user->hasFile('id_front_filename') || !$user->hasFile('id_back_filename')) {
+                $this->validate([
+                    'idf' => 'required',
+                    'idb' => 'required'
+                ]);
+            }
+            
+        }
+        if ($this->currentStep == 2) {
+            $this->validate([
+                'w2' => 'required',
+                'filing_status' => 'required',
+                'carrier' =>'required',
+                'utility_bill' => 'required',
+                'snn' => 'required'
+            ]);
+        }
+    }
+
+    public function setPage()
+    {
+        $user = auth()->user();
+        if ($user->hasFile('id_front_filename') && $user->hasFile('id_back_filename')) {
+            $this->currentStep = 2;
+        }
     }
 
     /**

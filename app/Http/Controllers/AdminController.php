@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -32,5 +33,10 @@ class AdminController extends Controller
     public function affiliates()
     {
         return view('admin.affiliates');
+    }
+
+    public function downloadFile(User $user, $file)
+    {
+        return Storage::download($user->{$file});
     }
 }

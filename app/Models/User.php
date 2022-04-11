@@ -186,4 +186,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Service::class);
     }
+
+    public function hasFile($file) 
+    {
+        return env('APP_ENV') == 'local' ? true :
+        $this->{$file} != null;
+    }
 }

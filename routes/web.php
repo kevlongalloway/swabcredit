@@ -59,7 +59,7 @@ Route::post('/upload-documents', [UploadController::class, 'store'])->name('uplo
 Route::get('/success/{type}', [SuccessController::class, 'index'])->name('success');
 
 
-Route::get('/users/{user}', [AdminController::class, 'customer'])->name('admin.customer');
+
 
 
 
@@ -69,6 +69,10 @@ Route::get('/affiliate/register', [AffiliateController::class, 'join'])->name('a
 Route::get('/affiliate/dashboard', [AffiliateController::class, 'dashboard'])->name('affiliate.dashboard')->middleware('affiliate');
 
 Route::get('/admin/affiliates', [AdminController::class, 'affiliates'])->name('admin.affiliates');
+
+
+Route::get('/users/{user}', [AdminController::class, 'customer'])->name('admin.customer');
+Route::get('/user/{user}/download/{file}', [AdminController::class, 'DownloadFile'])->name('admin.user.file');
 
 
 
