@@ -19,7 +19,7 @@ class AdminCustomers extends Component
         return view('livewire.admin-customers', [
             'users' => User::where('name', 'like', $searchTerm)
                             ->orWhere('email', 'like', $searchTerm)
-                            ->paginate(10)
+                            ->paginate(10)->onEachSide(2)
         ]);
     }
 }
