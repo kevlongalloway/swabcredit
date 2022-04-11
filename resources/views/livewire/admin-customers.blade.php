@@ -15,7 +15,7 @@
       padding: 12px;
     }
 
-    tr:nth-child(even) {background-color: #f2f2f2;}
+    tr:nth-child(even) {background-color: #f9f9f9;}
     </style>
 @endpush
 <div>
