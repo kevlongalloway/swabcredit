@@ -18,10 +18,10 @@
     }
 
     tr:nth-child(odd) {background-color: #f2f2f2;}
-    
-
     </style>
-      <input class="rounded" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query">
+    <div class="px-4 py-4">
+      <x-jet-input class="" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query" />
+    </div>
       <table class="table-auto">
         <thead>
           <tr>
@@ -35,8 +35,8 @@
           </tr>
           @endforeach
         </tbody>
-      </table>
-</div>
-<div class="">
+      </table>  
+      <div class="px-4 py-4">
       {{$users->onEachSide(1)->links()}}
-      </div>
+    </div>
+</div>
