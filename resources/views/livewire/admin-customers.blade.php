@@ -18,11 +18,12 @@
     }
 
     tr:nth-child(odd) {background-color: #f2f2f2;}
+    
+
     </style>
-    <form class="form-inline" method="get" action="{{ url('/dashboard/search') }}">
-      <input class="" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query">
+    <form class="form-inline py-3 px-3" method="get" action="{{ url('/dashboard/search') }}">
+      <input class="rounded" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query">
     </form>
-        {{$users->onEachSide(1)->links()}}
       <table class="table-auto">
         <thead>
           <tr>
@@ -36,6 +37,8 @@
           </tr>
           @endforeach
         </tbody>
-      </table>  
-      {{$users->onEachSide(1)->links()}}
+      </table>
 </div>
+<div class="">
+      {{$users->onEachSide(1)->links()}}
+      </div>
