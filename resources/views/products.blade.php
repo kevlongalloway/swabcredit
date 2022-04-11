@@ -1,5 +1,5 @@
 <x-home-layout>
-    <x-landing-navbar :services="$services"/>
+    <x-navbar :services="$services"/>
 
     <div class="w-100">
     <!-- Component Call To Action 1 Start -->

@@ -21,9 +21,7 @@
     
 
     </style>
-    <form class="form-inline py-3 px-3" method="get" action="{{ url('/dashboard/search') }}">
       <input class="rounded" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query">
-    </form>
       <table class="table-auto">
         <thead>
           <tr>
