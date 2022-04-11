@@ -23,6 +23,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <th>
             Phone Number
         </th>
+
     </tr>
     <tr>
         <td>
@@ -36,4 +37,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         </td>
     </tr>
 </Table>
+
 </div>
+
