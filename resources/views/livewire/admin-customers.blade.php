@@ -1,8 +1,5 @@
-<div>
-      <h2 class="font-semibold text-xl text-white flex justify-center leading-7 py-3" style='background:#6776f7;'>
-            {{ __('Customers') }}
-      </h2>
-    <style>
+@push('styles')
+<style>
     table {
       border-collapse: collapse;
       width: 100%;
@@ -17,8 +14,13 @@
       padding: 12px;
     }
 
-    tr:nth-child(odd) {background-color: #f2f2f2;}
+    tr:nth-child(even) {background-color: #f2f2f2;}
     </style>
+@endpush
+<div>
+      <h2 class="font-semibold text-xl text-white flex justify-center leading-7 py-3" style='background:#6776f7;'>
+            {{ __('Customers') }}
+      </h2>
     <div class="px-4 py-4">
       <x-jet-input class="" class="form-control" name="query" placeholder="Search..." type="text" wire:model.debounce.500ms="query" />
     </div>

@@ -1,3 +1,29 @@
+@push('styles')
+<style>
+                .container {
+                padding: 40px;
+                margin: 2em auto 2em auto;
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                }
+
+                .item {
+                background: #f2f2f2;
+                transition : all 0.3s ease-in-out;
+                width: 32%;
+                padding-bottom: 18%;
+                margin-bottom: 2%;
+                }
+
+                .item:hover {
+                transition: all 0.5s ease;
+                background: #d9d9d9;
+                }
+</style>
+@endpush
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -61,31 +87,6 @@
             </p>
 
             </div>
-
-
-            <style>
-                .container {
-                padding: 40px;
-                margin: 2em auto 2em auto;
-                position: relative;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                }
-
-                .item {
-                background: #f2f2f2;
-                transition : all 0.3s ease-in-out;
-                width: 32%;
-                padding-bottom: 18%;
-                margin-bottom: 2%;
-                }
-
-                .item:hover {
-                transition: all 0.5s ease;
-                background: #d9d9d9;
-                }
-                </style>
                 <div class="container rounded bg-white shadow-xl">
                     <div class="item rounded" href="">
                         <h2 class="font-semibold text-lg text-grey flex justify-center text-center align-middle leading-7 p-3">

@@ -12,7 +12,7 @@ th, td {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
-<Table>
+<table>
     <tr>
         <th>
             Name
@@ -36,7 +36,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
             {{ $user->phone }}
         </td>
     </tr>
-</Table>
+</table>
 
 </div>
 
