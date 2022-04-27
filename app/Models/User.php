@@ -153,9 +153,10 @@ class User extends Authenticatable
      */
     public function needsFileUpload()
     {
-        $this->update([
-            'has_files' => 0
-        ]);
+        if (!$this->isAdmin()) {
+            $this->has_files = 1;
+            $this->save();
+        }
     }
 
     /**
@@ -189,7 +190,7 @@ class User extends Authenticatable
 
     public function hasFile($file) 
     {
-        return env('APP_ENV') == 'local' ? true :
+        return env('APP_ENV') == 'local' ? $this->{$file} != null :
         $this->{$file} != null;
     }
 }

@@ -46,6 +46,7 @@ Route::get('/products', [ProductsPageController::class, 'index'])->name('product
 
 Route::get('/services/{servicePath}', [ServicesController::class, 'index'])->name('guest.services')->middleware('service.exists');
 Route::get('/checkout/{service}', [PaymentController::class, 'index'])->name('checkout')->middleware('auth');
+Route::post('/payment', [PaymentController::class, 'createPayment'])->name('payment');
 Route::post('/checkout', [PaymentController::class, 'store'])->name('checkout');
 
 
@@ -57,6 +58,7 @@ Route::get('/upload-documents', [UploadController::class, 'index'])->name('uploa
 Route::post('/upload-documents', [UploadController::class, 'store'])->name('upload.store');
 
 Route::get('/success/{type}', [SuccessController::class, 'index'])->name('success');
+
 
 
 

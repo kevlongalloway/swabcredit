@@ -44,7 +44,9 @@
                     <li class="nav-item mx-2 active">
                         <a class="nav-link  btn-warning btn" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
                     </li>
-
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="{{ route('logout') }}">{{ __('Log out') }}</a>
+                    </li>
                 @else
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

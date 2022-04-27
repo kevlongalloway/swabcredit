@@ -237,6 +237,8 @@ class UploadForm extends Component
 
     public function save()
     {
+        $this->updateUser();
+
         $this->message = 'Successfully Uploaded!';
     }
 

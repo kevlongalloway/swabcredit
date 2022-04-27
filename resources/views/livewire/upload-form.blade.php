@@ -12,9 +12,9 @@
         </div>
         @if($start == false)
             <h1>Upload Documents</h1>
-            <a href="#" class="ml-4" wire:click="start">
+            <x-jet-button href="#" class="ml-4" wire:click="start">
                 {{ __('Start') }}
-            </a>
+            </x-jet-button>
         @else
         @if ($errors->any())
             <div class="font-medium text-red-600">{{ __('Whoops! Something went wrong.') }}</div>
