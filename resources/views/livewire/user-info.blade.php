@@ -22,6 +22,53 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
     background: #d9d9d9;
     }
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+@endpush
+@push('scripts')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+                    var i = 1;
+                    $('#additem .btn-default').on('click', function(e) {
+                    i++;
+                    var el = $('.table-additems tbody tr:eq(0)').clone();
+                    $(el).find('option:selected').removeAttr('selected');
+                    $(el).find(':input').each(function() {
+                        $(this).removeAttr('value');
+                    });
+                    //while cloning hide other input
+                    $(el).find('.inputother').css({
+                        'display': 'none'
+                    });
+
+                    $(this).closest('tr').before('<tr id="row' + i + '" >' + $(el).html() + '</tr>');
+                    });
+                    $(document).on('click', '#additem .btn-danger', function(e) {
+                    if ($('.table-additems tbody tr').length == 2) {
+                        var el = $('.table-additems tbody tr:eq(0)');
+                        $(el).find('select:eq(0)').val($(el).find('select:eq(0) option:first').val());
+                        $(el).find('select:eq(1)').val($(el).find('select:eq(1) option:first').val());
+                        $(el).find('input:eq(0)').val('');
+                        e.preventDefault();
+                    } else {
+                        $(this).closest('tr').remove();
+                    }
+                    });
+                    //use this because other slect-box are dynmically created
+                    $(document).on('change', '.serviceitem', function(e) {
+                    if ($(this).val() == 'other') {
+                    //find this ->closest trs-> get input box show
+                        $(this).closest("tr").find('.inputother').css({
+                        'display': 'block'
+                        });
+                    } else {
+                        $(this).closest("tr").find('.inputother').css({
+                        'display': 'none'
+                        });
+                    }
+                    });
+                </script>
 @endpush
 <div>
 <table>
@@ -59,6 +106,57 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
                 {{ $user->line1 }}, {{ $user->line2 }}<br>
                 {{ $user->city }}, {{ $user->state }} {{ $user->postal_code }}<br>
             </p>
+
+            </div>
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg my-4">
+            <h2 class="font-semibold text-lg text-grey flex justify-left leading-7 p-3">
+                {{ __('Services') }}
+            </h2>
+            <hr>
+            <div class="flex justify-between">
+            <div class="container-fluid">
+      <div id="additem">
+        <div class="d-flex justify-content-center align-items-center">
+          <table class="table table-striped table-condensed table-additems">
+            <thead>
+              <tr>
+                <th class="align-middle border-0">Service</th>
+                <th class="align-middle border-0">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row1">
+                <td>
+                  <select name="items[]" class="form-control serviceitem">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                  </select>
+
+                  <input type="text" class='form-control inputother' style="display: none;" name="other[]">
+
+                </td>
+                <td class="action">
+                  <button type="submit" class="btn btn-danger ">
+                        Delete
+                    </button>
+                    <button type="submit" class="btn btn-success ">
+                        Save
+                    </button>            
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4">
+                  <button type="button" class="btn btn-default btn-xs">+ Add New Item</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+            </div>
 
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg my-4">
@@ -177,4 +275,5 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
                     @endif
 
                 </div>
+                
                 
