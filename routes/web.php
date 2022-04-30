@@ -59,6 +59,8 @@ Route::post('/upload-documents', [UploadController::class, 'store'])->name('uplo
 
 Route::get('/success/{type}', [SuccessController::class, 'index'])->name('success');
 
+Route::get('/payment-complete/{service}', [PaymentController::class, 'paymentComplete'])->name('payment.complete');
+
 
 
 

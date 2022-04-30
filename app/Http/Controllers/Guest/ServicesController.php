@@ -34,8 +34,8 @@ class ServicesController extends Controller
         }
 
         if ($service->requiresUpload()) {
-            $user->needsFileUpload();
-            return redirect()->route('dashboard');
+            $user->makeFileUploadRequired();
+            return redirect()->route('upload.index');
         }
         
         if($service->isSubscription()) {

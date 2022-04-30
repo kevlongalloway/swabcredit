@@ -146,17 +146,22 @@ class User extends Authenticatable
         return $hasFiles;
     }
 
+    public function makeFileUploadRequired()
+    {
+        if (!$this->isAdmin()) {
+            $this->upload_required = 1;
+            $this->save();
+        }
+    }
+
     /**
      * Check if user needs to upload files.
      *
      * @return Boolean
      */
-    public function needsFileUpload()
+    public function requiresUpload()
     {
-        if (!$this->isAdmin()) {
-            $this->has_files = 1;
-            $this->save();
-        }
+        return $this->requires_upload;
     }
 
     /**
@@ -166,9 +171,8 @@ class User extends Authenticatable
      */
     public function uploadRequired()
     {
-        $this->update([
-            'has_files' => 0
-        ]);
+        $this->has_files = 1;
+        $this->save();
     }
 
     /**
@@ -178,9 +182,8 @@ class User extends Authenticatable
      */
     public function uploadFinished()
     {
-        $this->update([
-            'has_files' => 1
-        ]);
+        $this->has_files = 0;
+        $this->save();
     }
 
     public function services()

@@ -75,8 +75,7 @@
 <script type="text/javascript">
     const appId = "{{ env('SQUARE_APPLICATION_ID') }}";
     const locationId = "{{ env('SQUARE_LOCATION') }}"; 
-
-
+    const serviceId = {{ $service_id }};
     
 
       async function initializeCard(payments) {
@@ -254,7 +253,7 @@
         const body = JSON.stringify({
           locationId,
           sourceId: token,
-          serviceId: 2
+          serviceId: serviceId
         });
 
         const paymentResponse = await fetch('/payment', {
@@ -264,7 +263,7 @@
           },
           body,
         });
-        console.log(paymentResponse);
+
         if (paymentResponse.ok) {
           return paymentResponse.json();
         }
@@ -349,8 +348,8 @@
             const token = await tokenize(paymentMethod);
             const paymentResults = await createPayment(token);
             displayPaymentResults('SUCCESS');
-
             console.debug('Payment Success', paymentResults);
+            window.location.href = paymentResults.redirectUrl;
           } catch (e) {
             cardButton.disabled = false;
             displayPaymentResults('FAILURE');

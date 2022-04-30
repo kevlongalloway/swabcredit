@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Service;
 use Illuminate\Support\Facades\Http;
 use Nikolag\Square\Models\Customer;
+use Illuminate\Support\Facades\URL;
 
 class PaymentController extends Controller
 {
@@ -33,6 +34,8 @@ class PaymentController extends Controller
          // $customer = new Customer($customerArr);
          // $customer->save();
         $service = Service::find($request->serviceId);
+        $redirectUrl = URL::signedRoute('payment.complete', ['service' => $service->id]);
+        return response()->json(['redirectUrl' => $redirectUrl]); 
         
         $data = [
             'idempotency_key' => $idempotencyKey,
@@ -53,17 +56,37 @@ class PaymentController extends Controller
 
         if($response->successful()) {
             $res = $response->object();
-            $result = [
-                'success' => true,
-                'payment' => [
-                    'id' => $res->payment->id,
-                    'status' => $res->payment->status,
-                    'receipt_url' => $res->payment->receipt_url,
-                    'orderID' => $res->payment->order_id
-                ]
-            ];
+            if ($res->payment->status == 'COMPLETED') {
+                $result = [
+                    'success' => true,
+                    'payment' => [
+                        'id' => $res->payment->id,
+                        'status' => $res->payment->status,
+                        'receipt_url' => $res->payment->receipt_url,
+                        'orderID' => $res->payment->order_id
+                    ],
+                    'redirect_url' => $redirectUrl
+                ];
+            }
+            else {
+                $result = [
+                    'success' => false,
+                ];
+            }
             return response()->json($result);
         }
+    }
+
+    public function paymentComplete(Request $request, $service)
+    {
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }
+        $user = auth()->user();
+        $service = Service::find($service);
+        $user->services()->attach($service);
+
+        return redirect()->route('success', ['type' => 'checkout']);
     }
 
     public function store(Request $request)

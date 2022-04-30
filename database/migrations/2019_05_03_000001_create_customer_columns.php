@@ -19,7 +19,8 @@ class CreateCustomerColumns extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('postal_code')->nullable();
-            $table->boolean('has_files')->default(1);
+            $table->boolean('has_files')->default(0);
+            $table->boolean('upload_required')->default(0);
             $table->string('stripe_id')->nullable()->index();
             $table->string('pm_type')->nullable();
             $table->string('pm_last_four', 4)->nullable();

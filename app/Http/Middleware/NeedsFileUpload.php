@@ -16,7 +16,7 @@ class NeedsFileUpload
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user()->hasFiles() && !auth()->user()->isAdmin()) {
+        if(auth()->user()->requiresUpload() && !auth()->user()->isAdmin()) {
             return redirect()->route('upload.index');
         }
         return $next($request);
