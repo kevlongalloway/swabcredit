@@ -108,13 +108,16 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
             </p>
 
             </div>
+
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg my-4">
             <h2 class="font-semibold text-lg text-grey flex justify-left leading-7 p-3">
                 {{ __('Services') }}
             </h2>
             <hr>
             <div class="flex justify-between">
-            <div class="container-fluid">
+
+{{ dd($user) }}
+    <div class="container-fluid">
       <div id="additem">
         <div class="d-flex justify-content-center align-items-center">
           <table class="table table-striped table-condensed table-additems">
@@ -156,6 +159,7 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
         </div>
       </div>
     </div>
+
             </div>
 
             </div>

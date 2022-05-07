@@ -307,7 +307,17 @@ class UploadForm extends Component
                 'filing_status' => 'required',
                 'carrier' =>'required',
                 'utility_bill' => 'required',
-                'snn' => 'required'
+                'snn' => 'required',
+            ]);
+        }
+        if ($this->currentStep == 3) {
+            $this->validate([
+                'line1' => 'required',
+                'city' =>'required',
+                'state' => 'required',
+                'zip' => 'required',
+                'acc_num' => 'required',
+                'rout_num' => 'required'
             ]);
         }
     }
@@ -357,7 +367,12 @@ class UploadForm extends Component
             'acc_num' => $this->acc_num,
             'rout_num' => $this->rout_num,
             'filing_status' => $this->filing_status,
-            'carrier' => $this->carrier
+            'carrier' => $this->carrier,
+            'line1' => $this->line1,
+            'line2' => $this->line2,
+            'city' => $this->city,
+            'state' => $this->state,
+            'zip' => $this->zip
         ]);
 
         foreach($this->fileAttributes as $attribute) {

@@ -14,6 +14,11 @@ class UserInfo extends Component
         return view('livewire.user-info');
     }
 
+    public function mount()
+    {
+        $this->user = auth()->user();
+    }
+
     public function downloadFile($filename)
     {
         dd($this->user->{$filename});
