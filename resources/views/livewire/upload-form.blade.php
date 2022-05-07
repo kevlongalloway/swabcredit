@@ -88,6 +88,28 @@
         </div>
         @endif
         @if($currentStep == 3)
+        <div id="address">
+            <div class="mt-4">
+                <x-jet-label for="line1" value="{{ __('Address Line 1') }}" />
+                <x-jet-input name="line1" wire:model="line1" class="block mt-1 w-full" type="text" name="line1" :value="old('line1')"/>
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="line2" value="{{ __('Address Line 2') }}" />
+                <x-jet-input name="line2" wire:model="line2" class="block mt-1 w-full" type="text" name="line2" :value="old('line2')"/>
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="city" value="{{ __('City') }}" />
+                <x-jet-input name="city" wire:model="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')"/>
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="state" value="{{ __('State') }}" />
+                <x-jet-input name="state" wire:model="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')"/>
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="zip" value="{{ __('Zip Code') }}" />
+                <x-jet-input name="zip" wire:model="zip" class="block mt-1 w-full" type="text" name="zip" :value="old('zip')"/>
+            </div>
+        </div>
         <div id="accroute">
             <div class="mt-4">
                 <x-jet-label for="acc_num" value="{{ __('Bank Account Number') }}" />

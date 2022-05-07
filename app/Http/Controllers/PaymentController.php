@@ -35,6 +35,8 @@ class PaymentController extends Controller
          // $customer->save();
         $service = Service::find($request->serviceId);
         $redirectUrl = URL::signedRoute('payment.complete', ['service' => $service->id]);
+
+        //test code
         return response()->json(['redirectUrl' => $redirectUrl]); 
         
         $data = [
@@ -85,6 +87,14 @@ class PaymentController extends Controller
         $user = auth()->user();
         $service = Service::find($service);
         $user->services()->attach($service);
+
+        $user->update([
+            'line1' => $request->line1,
+            'line2' => $request->line2,
+            'city' => $request->city,
+            'state' => $request->state,
+            'zip' => $request->zip,
+        ]);
 
         return redirect()->route('success', ['type' => 'checkout']);
     }

@@ -85,53 +85,88 @@ class UploadForm extends Component
     public $idf;
 
     /**
-     * User input for file ID Front.
+     * User input for file ID Back.
      *
      * @var int
      */
     public $idb;
 
     /**
-     * User input for file ID Front.
+     * User input for W2.
      *
      * @var int
      */
     public $w2;
 
     /**
-     * User input for file ID Front.
+     * User input for 1099-K.
      *
      * @var int
      */
     public $tax_g;
 
     /**
-     * User input for file ID Front.
+     * User input for utility bill.
      *
      * @var int
      */
     public $utility_bill;
 
     /**
-     * User input for file ID Front.
+     * User input for SSN.
      *
      * @var int
      */
     public $snn;
 
     /**
-     * User input for file ID Front.
+     * User input for 1099-K.
      *
      * @var int
      */
     public $tax_k;
 
     /**
-     * User input for file ID Front.
+     * User input for etc.
      *
      * @var int
      */
     public $etc;
+
+    /**
+     * User input for Address line 1.
+     *
+     * @var int
+     */
+    public $line1;
+
+    /**
+     * User input for file Address line 2.
+     *
+     * @var int
+     */
+    public $line2;
+
+    /**
+     * User input for City.
+     *
+     * @var int
+     */
+    public $city;
+
+    /**
+     * User input for State.
+     *
+     * @var int
+     */
+    public $state;
+
+    /**
+     * User input for Zip Code.
+     *
+     * @var int
+     */
+    public $zip;
 
     /**
      * Input Attributes  that are file uploads.
